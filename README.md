@@ -1,24 +1,28 @@
-# README
+# Where to go!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+Where to go!は旅行計画管理・共有SNSです。
 
-Things you may want to cover:
+### サイトテーマ
+ユーザビリティに富み、直感的に扱えるようなWebアプリケーション
 
-* Ruby version
+### テーマを選んだ理由
+筆者は旅行に行くことが好きだが旅行計画を立てることが不得意であり、計画を立てずに旅行をして残念な旅行になることが多かった。そこで、簡単に旅行計画を作成することができ、それを共有することで他者のレビューを受け取りフィードバックを貰えるようなWebアプリケーションを作成しようと思い立った。
 
-* System dependencies
+### ターゲットユーザ
+SNSを利用して情報発信を行なっている一般層
 
-* Configuration
+### 主な利用シーン
+旅行計画の作成時
+SNS利用時
 
-* Database creation
+## 設計書
 
-* Database initialization
+## チャレンジ要素一覧
+https://docs.google.com/spreadsheets/d/1yV-ZZUe4zgVV1ii_Un_rWINAm1XZ6GobMTLw7QGk0dM/edit#gid=0
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails 5.2.5
+- IDE：Cloud9
