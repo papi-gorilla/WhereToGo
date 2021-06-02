@@ -17,6 +17,7 @@ SNSを利用して情報発信を行なっている一般層
 SNS利用時
 
 ## 設計書
+https://docs.google.com/spreadsheets/d/1elIfdxf1YLt3rUPJ29rMp8ZkXJ3muZy-04vlsNTmOWQ/edit#gid=0
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1yV-ZZUe4zgVV1ii_Un_rWINAm1XZ6GobMTLw7QGk0dM/edit#gid=0
