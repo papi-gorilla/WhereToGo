@@ -14,3 +14,13 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+function initMap(){
+  var DS = new google.maps.DirectionsService();
+  var DR = new google.maps.DirectionsRenderer();
+
+  var map = new google.maps.Map(document.getElementById("map"),{
+    center: {lat: 35.170981, lng: 136.881556},
+    zoom: 15
+  });
+}
