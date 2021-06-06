@@ -1,14 +1,16 @@
 <header>
   <nav>
     <a href="/">Where To Go !</a>
-    
+
     <ul>
       <li><%= link_to "TOP", root_path %></li>
       <li><%= link_to "ABOUT", about_path %></li>
-      <li>SIGN IN</li>
-      <li>SIGN UP</li>
+      <li><%= link_to "SIGN IN", new_user_session_path %></li>
+      <li><%= link_to "SIGN UP", new_user_registration_path %></li>
+      <li><%= link_to "SIGN OUT", destroy_user_session_path, method: :delete %></li>
       <li><%= link_to "SEARCH", new_search_path %></li>
       <li>LANKING</li>
     </ul>
+
   </nav>
 </header>
