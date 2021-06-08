@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
   def new
+    @post = Post.new
+    @route = Route.new
   end
 
   def create
