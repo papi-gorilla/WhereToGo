@@ -68,20 +68,20 @@ function addForm(){
 }
 
 // 経路の出力
-function addPlan(){
-  var departure_point = document.getElementById("from").value;
-  var arrival_point = document.getElementById("to").value;
+// function addPlan(){
+//   var departure_point = document.getElementById("from").value;
+//   var arrival_point = document.getElementById("to").value;
 
-  var parent = document.getElementById("waypoint-list");
-  var child = parent.childNodes;
+//   // var parent = document.getElementById("waypoint-list");
+//   // var child = parent.childNodes;
 
-  way = [];
+//   // way = [];
 
-  for (var y = 0; y<child.length; y++){
-    way += "<li>" + child[y].value + "<li>";
-  }
+//   // for (var y = 0; y<child.length; y++){
+//   //   way += "<li>" + child[y].value + "<li>";
+//   // }
 
-  document.getElementById("departure").innerHTML = departure_point;
-  document.getElementById("way").innerHTML = way;
-  document.getElementById("arrival").innerHTML = arrival_point;
-}
+//   document.getElementById("departure").innerHTML = departure_point;
+//   // document.getElementById("way").innerHTML = way;
+//   document.getElementById("arrival").innerHTML = arrival_point;
+// }

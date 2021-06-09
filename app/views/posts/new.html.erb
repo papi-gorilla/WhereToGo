@@ -22,11 +22,21 @@
       <input type="button" id="enter-btn" value="予定に反映" onclick="addPlan()">
     </div>
 
-    <div id = "exist">
-      <p id = "departure"></p>
-      <p id = "way"></p>
-      <p id = "arrival"></p>
+    <!--<div id = "exist">-->
+    <!--  <p id = "departure"></p>-->
+    <!--  <p id = "way"></p>-->
+    <!--  <p id = "arrival"></p>-->
+    <!--</div>-->
+
+    <div id ="exist">
+      <%= form_with model: @post, local: true do |f| %>
+        <%= f.text_field :departure_point, id: "departure" %>
+
+        <%= f.text_field :ariival_point, id: "arrival" %>
+      <% end %>
     </div>
+
+
 
   </div>
 </div>
