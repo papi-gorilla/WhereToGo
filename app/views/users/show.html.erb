@@ -1,10 +1,12 @@
+<h3>ユーザー詳細画面</h3>
+
 <div>
-  <%= @user.user_image %>
-  <%= @user.user_name %>
-  <%= @user.introduction %>
+  <p><%= @user.user_image %></p>
+  <p><%= @user.user_name %></p>
+  <p><%= @user.introduction %></p>
   <p>フォロー数、フォロワー数</p>
   <% @post.each do |post| %>
-    <%= post.title %>
+    <p><%= post.title %></p>
   <% end %>
   <%= link_to "編集", edit_user_path(@user) %>
 </div>
