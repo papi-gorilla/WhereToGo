@@ -10,6 +10,11 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
+//= require jquery3
+//= require popper
+//= require bootstrap-sprockets
+
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
@@ -72,16 +77,16 @@ function addForm(){
 //   var departure_point = document.getElementById("from").value;
 //   var arrival_point = document.getElementById("to").value;
 
-//   // var parent = document.getElementById("waypoint-list");
-//   // var child = parent.childNodes;
+//   var parent = document.getElementById("waypoint-list");
+//   var child = parent.childNodes;
 
-//   // way = [];
+//   way = [];
 
-//   // for (var y = 0; y<child.length; y++){
-//   //   way += "<li>" + child[y].value + "<li>";
-//   // }
+//   for (var y = 0; y<child.length; y++){
+//     way += "<li>" + child[y].value + "<li>";
+//   }
 
 //   document.getElementById("departure").innerHTML = departure_point;
-//   // document.getElementById("way").innerHTML = way;
+//   document.getElementById("way").innerHTML = way;
 //   document.getElementById("arrival").innerHTML = arrival_point;
 // }
