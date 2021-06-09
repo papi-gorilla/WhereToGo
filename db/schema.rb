@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_09_025024) do
+ActiveRecord::Schema.define(version: 2021_06_09_214423) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -30,22 +30,10 @@ ActiveRecord::Schema.define(version: 2021_06_09_025024) do
   create_table "posts", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "title", null: false
-    t.string "days", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "relationships", force: :cascade do |t|
-    t.integer "following_id"
-    t.integer "followe_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "routes", force: :cascade do |t|
-    t.integer "post_id", null: false
-    t.string "departure_point", null: false
-    t.string "arrival_point", null: false
+    t.string "departure_point"
+    t.string "arrival_point"
     t.string "way_point1"
     t.string "way_point2"
     t.string "way_point3"
@@ -54,6 +42,11 @@ ActiveRecord::Schema.define(version: 2021_06_09_025024) do
     t.string "way_point6"
     t.string "way_point7"
     t.string "way_point8"
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "following_id"
+    t.integer "followe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

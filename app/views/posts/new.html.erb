@@ -1,42 +1,82 @@
-<h3>新規投稿</h3>
+<div class = "container px-5 px-sm-0">
+  <div class = "row">
+    <h3 class = "mx-auto">新規投稿</h3>
+  </div>
 
-  <div class = "box">
-    <div id = "map"></div>
-    <script src = "https://maps.googleapis.com/maps/api/js?key=<%= ENV['GoogleMapAPI'] %>&callback=initMap" async defer></script>
-
-    <div class="form">
-      <label>
-        <input type="text" id="from" value="出発地">
-      </label><br>
-
-      <label>
-        <div id="waypoint-list"></div>
-        <input type="button" id="waypoint-btn" value="＋" onclick="addForm()"><br>
-      </label>
-
-      <label>
-        <input type="text" id="to" value="到着地">
-      </label>
-
-      <input type="button" id="route-btn" value="ルートを表示">
-      <input type="button" id="enter-btn" value="予定に反映" onclick="addPlan()">
+  <div class = "row">
+    <div class ="col-6">
+      <div class = "box">
+        <div id = "map"></div>
+        <script src = "https://maps.googleapis.com/maps/api/js?key=<%= ENV['GoogleMapAPI'] %>&callback=initMap" async defer></script>
+      </div>
     </div>
 
-    <!--<div id = "exist">-->
-    <!--  <p id = "departure"></p>-->
-    <!--  <p id = "way"></p>-->
-    <!--  <p id = "arrival"></p>-->
-    <!--</div>-->
+    <div class = "col-3">
+      <div class="form">
+        <label>
+          <input type="text" id="from" value="出発地">
+        </label><br />
 
-    <div id ="exist">
+        <label>
+          <div id="waypoint-list"></div>
+          <input type="button" id="waypoint-btn" value="＋" onclick="addForm()"><br>
+        </label><br />
+
+        <label>
+          <input type="text" id="to" value="到着地">
+        </label><br />
+
+        <input type="button" id="route-btn" value="ルートを表示"><br />
+        <input type="button" id="enter-btn" value="予定に反映" onclick="addPlan()">
+      </div>
+    </div>
+
+    <div class = "col-3">
       <%= form_with model: @post, local: true do |f| %>
-        <%= f.text_field :departure_point, id: "departure" %>
+        <%= f.label "タイトル" %>
+        <%= f.text_field :title, class: "float-right" %>
 
-        <%= f.text_field :ariival_point, id: "arrival" %>
+        <%= f.label "出発地" %>
+        <%= f.text_field :departure_point, class: "float-right" %>
+
+        <%= f.label "経由地1" %>
+        <%= f.text_field :way_point1, class: "float-right" %>
+
+        <%= f.label "経由地2" %>
+        <%= f.text_field :way_point2, class: "float-right" %>
+
+        <%= f.label "経由地3" %>
+        <%= f.text_field :way_point3, class: "float-right" %>
+
+        <%= f.label "経由地4" %>
+        <%= f.text_field :way_point4, class: "float-right" %>
+
+        <%= f.label "経由地5" %>
+        <%= f.text_field :way_point5, class: "float-right" %>
+
+        <%= f.label "経由地6" %>
+        <%= f.text_field :way_point6, class: "float-right" %>
+
+        <%= f.label "経由地7" %>
+        <%= f.text_field :way_point7, class: "float-right" %>
+
+        <%= f.label "経由地8" %>
+        <%= f.text_field :way_point8, class: "float-right" %>
+
+        <%= f.label "到着地" %>
+        <%= f.text_field :arrival_point, class: "float-right" %>
+
+        <%= f.submit "投稿" %>
+
       <% end %>
+
+      <!--経路の出力-->
+      <!--<div id = "exist">-->
+      <!--  <p id = "departure"></p>-->
+      <!--  <p id = "way"></p>-->
+      <!--  <p id = "arrival"></p>-->
+      <!--</div>-->
+
     </div>
-
-
-
   </div>
 </div>
