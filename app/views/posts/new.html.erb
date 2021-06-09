@@ -1,0 +1,42 @@
+<h3>新規投稿</h3>
+
+  <div class = "box">
+    <div id = "map"></div>
+    <script src = "https://maps.googleapis.com/maps/api/js?key=<%= ENV['GoogleMapAPI'] %>&callback=initMap" async defer></script>
+
+    <div class="form">
+      <label>
+        <input type="text" id="from" value="出発地">
+      </label><br>
+
+      <label>
+        <div id="waypoint-list"></div>
+        <input type="button" id="waypoint-btn" value="＋" onclick="addForm()"><br>
+      </label>
+
+      <label>
+        <input type="text" id="to" value="到着地">
+      </label>
+
+      <input type="button" id="route-btn" value="ルートを表示">
+      <input type="button" id="enter-btn" value="予定に反映" onclick="addPlan()">
+    </div>
+
+    <!--<div id = "exist">-->
+    <!--  <p id = "departure"></p>-->
+    <!--  <p id = "way"></p>-->
+    <!--  <p id = "arrival"></p>-->
+    <!--</div>-->
+
+    <div id ="exist">
+      <%= form_with model: @post, local: true do |f| %>
+        <%= f.text_field :departure_point, id: "departure" %>
+
+        <%= f.text_field :ariival_point, id: "arrival" %>
+      <% end %>
+    </div>
+
+
+
+  </div>
+</div>
