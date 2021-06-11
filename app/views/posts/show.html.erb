@@ -1,0 +1,52 @@
+<div class = "container">
+  <div class = "row">
+    <h3 class = "mx-auto">投稿詳細ページ</h3>
+  </div>
+
+  <div class = "row">
+    <div class ="col-6">
+      <div class = "box">
+        <div id = "map"></div>
+        <script src = "https://maps.googleapis.com/maps/api/js?key=<%= ENV['GoogleMapAPI'] %>&callback=initMap" async defer></script>
+      </div>
+    </div>
+
+    <div class = "col-6">
+      <label class = "col-3">タイトル</label>
+      <%= @post.title %><br />
+
+      <label class = "col-3">出発点</label>
+      <%= @post.departure_point %><br />
+
+      <label class = "col-3">経由地1</label>
+      <%= @post.way_point1 %><br />
+
+      <label class = "col-3">経由地2</label>
+      <%= @post.way_point2 %><br />
+
+      <label class = "col-3">経由地3</label>
+      <%= @post.way_point3 %><br />
+
+      <label class = "col-3">経由地4</label>
+      <%= @post.way_point4 %><br />
+
+      <label class = "col-3">経由地5</label>
+      <%= @post.way_point5 %><br />
+
+      <label class = "col-3">経由地6</label>
+      <%= @post.way_point6 %><br />
+
+      <label class = "col-3">経由地7</label>
+      <%= @post.way_point7 %><br />
+
+      <label class = "col-3">経由地8</label>
+      <%= @post.way_point8 %><br />
+
+      <label class = "col-3">到着地</label>
+      <%= @post.arrival_point %>
+
+    </div>
+
+    </div>
+  </div>
+</div>
