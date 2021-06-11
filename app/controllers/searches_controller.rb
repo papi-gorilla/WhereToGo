@@ -1,8 +1,9 @@
 class SearchesController < ApplicationController
-  def new
-  end
-
-  def index
+  def search
+    @range = params[:range]
+    if @range = "Post"
+      @posts = Post.looks(params[:search], params[:word])
+    end
   end
 
 end

@@ -1,0 +1,15 @@
+<div class = "container px-5 px-sm-0">
+  <div class = "row">
+    <h3 class = "mx-auto">検索結果一覧画面</h3>
+  </div>
+
+  <div class = "row">
+    <div class = "col text-center">
+      <% if @range == "Post" %>
+        <% @posts.each do |post| %>
+          <%= link_to post.title, post_path(post) %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
