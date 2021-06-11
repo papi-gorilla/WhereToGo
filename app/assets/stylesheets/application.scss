@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
- 
+
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
@@ -25,4 +25,8 @@
 
 li{
   list-style: none;
+}
+
+.user_image{
+  border-radius: 50%;
 }
