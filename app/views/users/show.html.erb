@@ -6,21 +6,19 @@
   <div class = "row">
     <div class = "col text-center">
       <%= attachment_image_tag @user, :user_image, size: "100x100", fallback: "no_image.jpeg", class: "user_image mb-3" %><br />
-      
+
       <strong>
-        <%= @user.user_name %>
+        <p><%= @user.user_name %></p>
       </strong><br />
-      
-      <%= @user.introduction %><br />
-      
-      <span>フォロー数、フォロワー数</span><br />
-      
+
+      <p><%= @user.introduction %></p><br />
+
       <% @post.each do |post| %>
-        <%= link_to post.title, post_path(post) %>
+        <p><%= link_to post.title, post_path(post) %></p>
       <% end %><br />
-      
-      <%= link_to "編集", edit_user_path(@user) %>
-      
+
+      <p><%= link_to "編集", edit_user_path(@user) %></p>
+
     </div>
   </div>
 
