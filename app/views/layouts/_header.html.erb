@@ -9,15 +9,19 @@
         <% if user_signed_in? %>
           <li><%= link_to "TOP", root_path, class: "nav-link" %></li>
           <li><%= link_to "SIGN OUT", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
-          <li><%= link_to "SEARCH", new_search_path, class: "nav-link" %></li>
         <% else %>
           <li><%= link_to "TOP", root_path, class: "nav-link" %></li>
           <li><%= link_to "ABOUT", about_path, class: "nav-link" %></li>
           <li><%= link_to "SIGN IN", new_user_session_path, class: "nav-link" %></li>
           <li><%= link_to "SIGN UP", new_user_registration_path, class: "nav-link" %></li>
-          <li><%= link_to "SEARCH", new_search_path, class: "nav-link" %></li>
         <% end %>
       </ul>
+
+      <%= form_with url: search_path, local: true, method: :get do |f| %>
+        <%= f.text_field :word %>
+        <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["前方一致","forward_match"], ["後方一致","backward_match"], ["部分一致","partial_match"]]) %>
+        <%= f.submit "検索", class: "btn btn-outline-dark btn-light btn-sm" %>
+      <% end %>
 
     </nav>
 

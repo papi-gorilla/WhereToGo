@@ -15,5 +15,5 @@ Rails.application.routes.draw do
     resources :comments, only:[:create, :destroy]
     resource :favorites, only:[:create, :index]
   end
-  resources :searches, only:[:new, :index]
+  get "search" => "searches#search"
 end
