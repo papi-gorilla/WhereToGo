@@ -43,7 +43,9 @@
       <%= @post.way_point8 %><br />
 
       <label class = "col-3">到着地</label>
-      <%= @post.arrival_point %>
+      <%= @post.arrival_point %><br />
+
+      <%= render "post_favorite", post: @post %>
 
     </div>
 

@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :user
   has_many :comments
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
 
   def self.looks(search, word)
     if search == "perfect_match"
@@ -16,4 +16,9 @@ class Post < ApplicationRecord
       @book = Post.all
     end
   end
+
+  def favorited_by?(user)
+    favorites.where(user_id: user).exists?
+  end
+
 end

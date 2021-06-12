@@ -15,6 +15,7 @@
 
       <% @post.each do |post| %>
         <p><%= link_to post.title, post_path(post) %></p>
+        <%= render "posts/post_favorite", post: post %>
       <% end %><br />
 
       <p><%= link_to "編集", edit_user_path(@user) %></p>
