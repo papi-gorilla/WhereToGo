@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   delete "unfollow/:id" => "relationships#destroy", as: "unfollow"
   resources :posts, only:[:new, :create, :show, :edit, :update, :destroy] do
     resources :comments, only:[:create, :destroy]
-    resource :favorites, only:[:create, :index]
+    resource :favorites, only:[:create, :destroy]
   end
   get "search" => "searches#search"
 end
