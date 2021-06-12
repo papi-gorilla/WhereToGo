@@ -79,7 +79,6 @@ function addForm(){
 
 //   var parent = document.getElementById("waypoint-list");
 //   var child = parent.childNodes;
-
 //   way = [];
 
 //   for (var y = 0; y<child.length; y++){
