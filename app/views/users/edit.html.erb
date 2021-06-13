@@ -7,7 +7,7 @@
     <div class = "col text-center">
       <%= form_with model: @user, local: true do |f| %>
         <%= f.file_field :user_image, class: "image-field", style: "display: none" %>
-        <%= attachment_image_tag @user, :user_image, size: "100x100", fallback: "no_image.jpeg", onClick: "$('.image-field').click()", class: "image-prev mb-5" %><br />
+        <%= attachment_image_tag @user, :user_image, size: "100x100", fallback: "no_image.jpg", onClick: "$('.image-field').click()", class: "image-prev mb-5" %><br />
 
         <%= f.label "氏名" %>
         <%= f.text_field :name, class: "form-control col-3 mx-auto" %><br />
