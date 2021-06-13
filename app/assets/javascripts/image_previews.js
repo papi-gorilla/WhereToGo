@@ -4,10 +4,10 @@ $(function () {
       var reader = new FileReader();
       reader.onload = function (e) {
         $('.image-prev').attr('src', e.target.result);
-      }
+      };
       reader.readAsDataURL(input.files[0]);
-    }
-  }
+    };
+  };
 
   $('.image-field').change(function () {
     readURL(this);
