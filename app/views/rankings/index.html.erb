@@ -1,0 +1,13 @@
+<div class = "container px-5 px-sm-0">
+  <div class = "row">
+    <h3 class = "mx-auto">ランキング画面</h3>
+  </div>
+
+  <div class = "row">
+    <div class = "col text-center">
+      <% @ranks.each do |rank| %>
+        <%= link_to rank.title, post_path(rank) %>
+      <% end %>
+    </div>
+  </div>
+</div>
