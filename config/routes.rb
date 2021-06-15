@@ -9,12 +9,13 @@ Rails.application.routes.draw do
       get :following, :followed
     end
   end
-  post "follow/:id" => "relationships#create", as: "follow"
-  delete "unfollow/:id" => "relationships#destroy", as: "unfollow"
   resources :posts, only:[:new, :create, :show, :edit, :update, :destroy] do
     resources :comments, only:[:create, :destroy]
     resource :favorites, only:[:create, :destroy]
   end
   get "searches" => "searches#index"
   get "rankings" => "rankings#index"
+  post "follow/:id" => "relationships#follow", as: "follow"
+  delete "unfollow/:id" => "relationships#unfollow", as: "unfollow"
+
 end

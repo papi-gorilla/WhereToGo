@@ -1,0 +1,29 @@
+<div class = "container px-5 px-sm-0">
+  <div class = "row">
+    <h3 class = "mx-auto">フォロー一覧画面</h3>
+  </div>
+
+  <div class = "row">
+    <div class = "col text-center">
+      <% @users.each do |user| %>
+        <%= link_to user.name, user_path(user) %>
+        <p>
+          <%= link_to following_user_path(user) do %>
+            フォロー数: <%= user.following.count %>
+          <% end %>
+          |
+          <%= link_to followed_user_path(user) do %>
+            フォロワー数: <%= user.followed.count %>
+          <% end %>
+        </p>
+        <% if user_signed_in? && user != current_user %>
+          <% if current_user.following?(user) %>
+            <%= link_to "フォロー解除", unfollow_path(user), method: :DELETE %>
+          <% else %>
+            <%= link_to "フォローする", follow_path(user), method: :POST %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
