@@ -20,11 +20,11 @@
 
       <div>
         <p>
-          <%= link_to following_user_path do %>
+          <%= link_to following_user_path(@user) do %>
             フォロー数: <%= @user.following.count %>
           <% end %>
           |
-          <%= link_to followed_user_path do %>
+          <%= link_to followed_user_path(@user) do %>
             フォロワー数: <%= @user.followed.count %>
           <% end %>
         </p>
