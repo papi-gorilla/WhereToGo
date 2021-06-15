@@ -8,6 +8,7 @@
       <% @posts.each do |post| %>
         <%= link_to post.title, post_path(post) %>
         <%= render "post_favorite", post: post %>
+        コメント: <%= post.comments.count %>件
       <% end %>
     </div>
   </div>

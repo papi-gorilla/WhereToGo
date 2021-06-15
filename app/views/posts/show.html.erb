@@ -48,7 +48,19 @@
       <%= render "post_favorite", post: @post %>
 
     </div>
-
-    </div>
   </div>
+
+  <div class = "row">
+    <%= form_with(model: [@post, @comment], local: true) do |f| %>
+      <p><%= f.text_area :comment %></p>
+      <p><%= f.submit "コメントする" %></p>
+    <% end %>
+  </div>
+
+  <div class = "row">
+    <% @comments.each do |comment| %>
+      <p><%= comment.comment %></p>
+    <% end %>
+  </div>
+
 </div>
