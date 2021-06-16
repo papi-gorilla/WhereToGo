@@ -17,5 +17,6 @@ Rails.application.routes.draw do
   get "rankings" => "rankings#index"
   post "follow/:id" => "relationships#follow", as: "follow"
   delete "unfollow/:id" => "relationships#unfollow", as: "unfollow"
+  resources :notifications, only:[:index]
 
 end
