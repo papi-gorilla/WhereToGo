@@ -18,12 +18,30 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
-li{
-  list-style: none;
+body{
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
 }
 
-footer .container{
-  height: 100px;
+.main{
+  flex: 1;
+}
+
+header, footer{
+  background: linear-gradient(#696969, #a9a9a9);
+}
+
+.nav-link{
+  color: white;
+}
+
+.nav-link:hover{
+  color: #dcdcdc;
+}
+
+li{
+  list-style: none;
 }
 
 .user_image{
