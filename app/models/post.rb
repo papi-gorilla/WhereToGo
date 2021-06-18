@@ -4,6 +4,8 @@ class Post < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :notifications, dependent: :destroy
 
+  is_impressionable counter_cache: true
+
   def self.looks(search, word)
     if search == "perfect_match"
       @book = Post.where("title LIKE?","#{word}")
