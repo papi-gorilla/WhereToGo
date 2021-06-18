@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+
   def new
     @post = Post.new
   end
@@ -18,6 +19,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comment = Comment.new
     @comments = @post.comments
+    impressionist(@post, nil, unique: [:session_hash.to_s])
   end
 
   def edit

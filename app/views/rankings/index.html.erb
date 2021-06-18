@@ -8,6 +8,7 @@
       <% @ranks.each do |rank| %>
         <%= link_to rank.title, post_path(rank) %>
         コメント: <%= rank.comments.count %>件
+        閲覧数: <%= rank.impressionist_count(:filter => :session_hash) %>
       <% end %>
     </div>
   </div>
