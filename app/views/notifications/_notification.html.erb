@@ -1,21 +1,27 @@
-<% visitor = notification.visitor %>
-<% visited = notification.visited %>
+<div class = "container">
+  <div class = "row">
+    <div class = "col text-center">
+      <% visitor = notification.visitor %>
+      <% visited = notification.visited %>
 
-<span>
-  <%= link_to user_path(visitor) do %>
-    <%= visitor.user_name %>
-  <% end %>
-  さんが
-</span>
+      <span>
+        <%= link_to user_path(visitor) do %>
+          <%= visitor.user_name %>
+        <% end %>
+        さんが
+      </span>
 
-<% case notification.action %>
-  <% when "comment" then %>
-    <%= link_to "あなたの投稿", notification.post %>
-    <span>にコメントしました</span>
-  <% when "favorite" %>
-    <%= link_to "あなたの投稿", notification.post %>
-    <span>にいいねしました</span>
-  <% when "follow" %>
-    <span>あなたをフォローしました</span>
+      <% case notification.action %>
+        <% when "comment" then %>
+          <%= link_to "あなたの投稿", notification.post %>
+          <span>にコメントしました</span>
+        <% when "favorite" %>
+          <%= link_to "あなたの投稿", notification.post %>
+          <span>にいいねしました</span>
+        <% when "follow" %>
+          <span>あなたをフォローしました</span>
+      <% end %>
 
-<% end %>
+    </div>
+  </div>
+</div>
