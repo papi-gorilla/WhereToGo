@@ -6,9 +6,14 @@
   <div class = "row">
     <div class = "col text-center">
       <% @ranks.each do |rank| %>
-        <%= link_to rank.title, post_path(rank) %>
-        コメント: <%= rank.comments.count %>件
-        閲覧数: <%= rank.impressionist_count(:filter => :session_hash) %>
+        <div class = "card">
+          <div class = "card-body">
+            <%= link_to rank.title, post_path(rank) %>
+            コメント: <%= rank.comments.count %>件
+            <%= render "posts/post_favorite", post: rank %>
+            閲覧数: <%= rank.impressionist_count(:filter => :session_hash) %>
+          </div>
+        </div>
       <% end %>
     </div>
   </div>

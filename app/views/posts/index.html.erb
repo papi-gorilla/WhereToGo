@@ -1,14 +1,19 @@
-<div class = "container">
+<div class = "container px-5 px-sm-0">
   <div class = "row">
-    <h3 class = "mx-auto">投稿一覧ページ（トップページ）</h3>
+    <h3 class = "mx-auto">投稿一覧画面（トップ画面）</h3>
   </div>
 
   <div class = "row">
-    <div class = "col text-center">
+    <div class = "col">
       <% @posts.each do |post| %>
-        <%= link_to post.title, post_path(post) %>
-        <%= render "post_favorite", post: post %>
-        コメント: <%= post.comments.count %>件
+        <div class = "card">
+          <div class = "card-body">
+            <%= link_to post.title, post_path(post) %>
+            コメント: <%= post.comments.count %>件
+            <%= render "post_favorite", post: post %>
+            閲覧数: <%= post.impressionist_count(:filter => :session_hash) %>
+          </div>
+        </div>
       <% end %>
     </div>
   </div>
