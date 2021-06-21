@@ -53,3 +53,21 @@ li{
   height: 500px;
   width: 500px;
 }
+
+.favorite-icon{
+  color: #ff69b4;
+}
+
+.favorite-icon:hover{
+  text-decoration: none;
+  color: #c71585;
+}
+
+.post-title-link, .user-show-link{
+  color: black;
+}
+
+.post-title-link:hover, .user-show-link:hover{
+  text-decoration: none;
+  color: gray;
+}

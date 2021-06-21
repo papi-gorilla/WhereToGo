@@ -4,18 +4,9 @@
   </div>
 
   <div class = "row">
-    <div class = "col text-center">
+    <div class = "col">
       <% if @range == "Post" %>
-        <% @posts.each do |post| %>
-          <div class = "card">
-            <div class = "card-body">
-              <%= link_to post.title, post_path(post) %>
-              コメント: <%= post.comments.count %>件
-              <%= render "posts/post_favorite", post: post %>
-              閲覧数: <%= post.impressionist_count(:filter => :session_hash) %>
-            </div>
-          </div>
-        <% end %>
+        <%= render "posts/post_index", posts: @posts %>
       <% end %>
     </div>
   </div>
