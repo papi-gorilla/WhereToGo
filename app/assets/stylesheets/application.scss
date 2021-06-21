@@ -63,11 +63,22 @@ li{
   color: #c71585;
 }
 
-.post-title-link, .user-show-link{
+.post-title-link, .user-show-link, .tutorial-link{
   color: black;
 }
 
-.post-title-link:hover, .user-show-link:hover{
+.post-title-link:hover, .user-show-link:hover, .tutorial-link:hover{
   text-decoration: none;
   color: gray;
+}
+
+.about-image{
+  background-image: image-url("about.jpg");
+  height: 500px;
+  background-size: cover;
+  background-blend-mode: color-dodge;
+}
+
+.about-text{
+  line-height: 400px;
 }
