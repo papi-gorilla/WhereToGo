@@ -73,8 +73,8 @@ li{
 }
 
 .about-image{
-  background-image: image-url("about.jpg");
   height: 500px;
+  background-image: image-url("about.jpg");
   background-size: cover;
   background-blend-mode: color-dodge;
 }
