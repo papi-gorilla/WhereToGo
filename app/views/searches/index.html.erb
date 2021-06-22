@@ -4,11 +4,9 @@
   </div>
 
   <div class = "row">
-    <div class = "col text-center">
+    <div class = "col">
       <% if @range == "Post" %>
-        <% @posts.each do |post| %>
-          <%= link_to post.title, post_path(post) %>
-        <% end %>
+        <%= render "posts/post_index", posts: @posts %>
       <% end %>
     </div>
   </div>

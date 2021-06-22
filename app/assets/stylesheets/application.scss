@@ -26,10 +26,11 @@ body{
 
 .main{
   flex: 1;
+  background-color: #f0f8ff;
 }
 
 header, footer{
-  background: linear-gradient(#696969, #a9a9a9);
+  background-color: #4682b4;
 }
 
 .nav-link{
@@ -51,4 +52,33 @@ li{
 #map{
   height: 500px;
   width: 500px;
+}
+
+.favorite-icon{
+  color: #ff69b4;
+}
+
+.favorite-icon:hover{
+  text-decoration: none;
+  color: #c71585;
+}
+
+.post-title-link, .user-show-link, .tutorial-link{
+  color: black;
+}
+
+.post-title-link:hover, .user-show-link:hover, .tutorial-link:hover{
+  text-decoration: none;
+  color: gray;
+}
+
+.about-image{
+  height: 500px;
+  background-image: image-url("about.jpg");
+  background-size: cover;
+  background-blend-mode: color-dodge;
+}
+
+.about-text{
+  line-height: 400px;
 }
