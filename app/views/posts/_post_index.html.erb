@@ -1,18 +1,17 @@
-<% posts.each do |post| %>
-  <div class = "card">
-    <div class = "card-body">
-      <%= link_to post.title, post_path(post), class: "post-title-link" %>
+<div class = "card">
+  <div class = "card-body">
+    <%= link_to post.title, post_path(post), class: "post-title-link" %>
 
-      <%= link_to user_path(post), class: "user-show-link" do %>
-        <%= attachment_image_tag post.user, :user_image, size: "40x40" %>
-        <%= post.user.user_name %>
-      <% end %>
+    <%= link_to user_path(post), class: "user-show-link" do %>
+      <%= attachment_image_tag post.user, :user_image, size: "40x40" %>
+      <%= post.user.user_name %>
+    <% end %>
 
-      コメント: <%= post.comments.count %>件
+    コメント: <%= post.comments.count %>件
 
-      <%= render "posts/post_favorite", post: post %>
+    <%= render "posts/post_favorite", post: post %>
 
-      閲覧数: <%= post.impressionist_count(:filter => :session_hash) %>
-    </div>
+    閲覧数: <%= post.impressionist_count(:filter => :session_hash) %>
+
   </div>
-<% end %>
+</div>

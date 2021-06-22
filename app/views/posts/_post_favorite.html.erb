@@ -1,10 +1,10 @@
 <label>
   <% if post.favorited_by?(current_user) %>
-    <%= link_to post_favorites_path(post), method: :delete do %>
+    <%= link_to post_favorites_path(post), method: :delete, remote: true do %>
       <label class = "favorite-icon">♥<%= post.favorites.count %></label>
     <% end %>
   <% else %>
-    <%= link_to post_favorites_path(post), method: :post do %>
+    <%= link_to post_favorites_path(post), method: :post, remote: true do %>
       <label class = "favorite-icon">♡<%= post.favorites.count %></label>
     <% end %>
   <% end %>

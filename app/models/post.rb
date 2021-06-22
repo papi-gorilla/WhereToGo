@@ -1,22 +1,21 @@
 class Post < ApplicationRecord
   belongs_to :user
+
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :notifications, dependent: :destroy
+  has_many :courses, inverse_of: :post, dependent: :destroy
+  accepts_nested_attributes_for :courses
 
   is_impressionable counter_cache: true
 
   def self.looks(search, word)
     if search == "perfect_match"
-      @book = Post.where("title LIKE?","#{word}")
-    elsif search == "forward_match"
-      @book = Post.where("title LIKE?","#{word}%")
-    elsif search == "backward_match"
-      @book = Post.where("title LIKE?","%#{word}")
+      @post = Post.where("title LIKE?","#{word}")
     elsif search == "partial_match"
-      @book = Post.where("title LIKE?","%#{word}%")
+      @post = Post.where("title LIKE?","%#{word}%")
     else
-      @book = Post.all
+      @post = Post.all
     end
   end
 

@@ -11,42 +11,49 @@
       </div>
     </div>
 
-    <div class = "col-6">
-      <label class = "col-3">タイトル</label>
-      <%= @post.title %><br />
+    <div class = "col-3">
+      <div class = "form">
+        <%= form_with model: @course, url: courses_path(post_id: @post.id), local: true, id: 'way-points-form', class: "form-group" do |f| %>
+          <div class = "form-inline">
+            <%= f.number_field :day, placeholder: "日程", class: "form-control form-control-sm col-3" %>
+            <label>日目</label>
+          </div>
+          <%= f.text_field :departure_point, placeholder: "出発地", id: "departure", class: "form-control form-control-sm" %>
+          <div id = "waypoint-list">
+            <% for num in 1..8 do %>
+              <%= f.text_field :"way_point#{num}", id: "way-point-#{num}", class: 'd-none form-control form-control-sm', placeholder: "経由地#{num}" %>
+            <% end %>
+          </div>
+          <input type="button" id="waypoint-btn" value="＋" onclick="addForm()"><br>
+          <%= f.text_field :arrival_point, placeholder: "到着地", id: "arrival", class: "form-control form-control-sm" %>
 
-      <label class = "col-3">出発点</label>
-      <%= @post.departure_point %><br />
+          <input type="button" id="course-btn" value="経路を検索"><br />
+          <%= f.submit "投稿" %>
+        <% end %>
+      </div>
+    </div>
 
-      <label class = "col-3">経由地1</label>
-      <%= @post.way_point1 %><br />
-
-      <label class = "col-3">経由地2</label>
-      <%= @post.way_point2 %><br />
-
-      <label class = "col-3">経由地3</label>
-      <%= @post.way_point3 %><br />
-
-      <label class = "col-3">経由地4</label>
-      <%= @post.way_point4 %><br />
-
-      <label class = "col-3">経由地5</label>
-      <%= @post.way_point5 %><br />
-
-      <label class = "col-3">経由地6</label>
-      <%= @post.way_point6 %><br />
-
-      <label class = "col-3">経由地7</label>
-      <%= @post.way_point7 %><br />
-
-      <label class = "col-3">経由地8</label>
-      <%= @post.way_point8 %><br />
-
-      <label class = "col-3">到着地</label>
-      <%= @post.arrival_point %><br />
-
-      <%= render "post_favorite", post: @post %>
-
+    <div class = "col-3">
+      <table class = "table">
+        <thead>
+          <tr>
+            <td colspan = "4", class = "text-center">
+              <%= @post.title %>
+              (<%= @courses.length %>日間)
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+          <% @courses.each do |course| %>
+            <tr>
+              <td><%= course.day %>日目</td>
+              <td><%= course.departure_point %></td>
+              <td>→</td>
+              <td><%= course.arrival_point %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
 
