@@ -8,6 +8,12 @@ class ApplicationController < ActionController::Base
   def after_sign_up_path_for(resource)
     user_path(current_user)
   end
+  
+  def autheniticate_user
+    if current_user == nil
+      redirect_to new_user_session_path
+    end
+  end
 
   protected
 

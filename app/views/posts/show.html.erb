@@ -11,27 +11,29 @@
       </div>
     </div>
 
-    <div class = "col-3">
-      <div class = "form">
-        <%= form_with model: @course, url: courses_path(post_id: @post.id), local: true, id: 'way-points-form', class: "form-group" do |f| %>
-          <div class = "form-inline">
-            <%= f.number_field :day, placeholder: "日程", class: "form-control form-control-sm col-3" %>
-            <label>日目</label>
-          </div>
-          <%= f.text_field :departure_point, placeholder: "出発地", id: "departure", class: "form-control form-control-sm" %>
-          <div id = "waypoint-list">
-            <% for num in 1..8 do %>
-              <%= f.text_field :"way_point#{num}", id: "way-point-#{num}", class: 'd-none form-control form-control-sm', placeholder: "経由地#{num}" %>
-            <% end %>
-          </div>
-          <input type="button" id="waypoint-btn" value="＋" onclick="addForm()"><br>
-          <%= f.text_field :arrival_point, placeholder: "到着地", id: "arrival", class: "form-control form-control-sm" %>
+    <% if @post.user_id == current_user %>
+      <div class = "col-3">
+        <div class = "form text-center">
+          <%= form_with model: @course, url: courses_path(post_id: @post.id), local: true, id: 'way-points-form', class: "form-group" do |f| %>
+            <div class = "form-inline">
+              <%= f.number_field :day, placeholder: "日程", class: "form-control form-control-sm col-3" %>
+              <label>日目</label>
+            </div>
+            <%= f.text_field :departure_point, placeholder: "出発地", id: "departure", class: "form-control form-control-sm" %>
+            <div id = "waypoint-list">
+              <% for num in 1..8 do %>
+                <%= f.text_field :"way_point#{num}", id: "way-point-#{num}", class: 'd-none form-control form-control-sm', placeholder: "経由地#{num}" %>
+              <% end %>
+            </div>
+            <input type="button" id="waypoint-btn" value="＋" onclick="addForm()" class = "btn btn-sm btn-secondary mx-auto"><br>
+            <%= f.text_field :arrival_point, placeholder: "到着地", id: "arrival", class: "form-control form-control-sm" %>
 
-          <input type="button" id="course-btn" value="経路を検索"><br />
-          <%= f.submit "投稿" %>
-        <% end %>
+            <input type="button" id="course-btn" value="経路を検索", class = "btn btn-sm btn-primary col-12"><br />
+            <%= f.submit "投稿", class: "btn btn-sm btn-success col-12" %>
+          <% end %>
+        </div>
       </div>
-    </div>
+    <% end %>
 
     <div class = "col-3">
       <table class = "table">
@@ -40,34 +42,72 @@
             <td colspan = "4", class = "text-center">
               <%= @post.title %>
               (<%= @courses.length %>日間)
+              <%= link_to edit_post_path(@post), class: "edit-btn" do %>
+                <i class="fas fa-edit"></i>
+              <% end %>
             </td>
           </tr>
         </thead>
         <tbody>
           <% @courses.each do |course| %>
+            <tr class = "table-info" >
+              <td colspan = "2">
+                <%= course.day %>日目
+              </td>
+              <td class = "text-right">
+                <%= link_to course_path(course), method: :delete, class: "delete-btn" do %>
+                  <i class="fas fa-trash-alt"></i>
+                <% end %>
+              </td>
+            </tr>
             <tr>
-              <td><%= course.day %>日目</td>
               <td><%= course.departure_point %></td>
               <td>→</td>
               <td><%= course.arrival_point %></td>
             </tr>
           <% end %>
+
         </tbody>
       </table>
     </div>
   </div>
 
-  <div class = "row">
-    <%= form_with(model: [@post, @comment], local: true) do |f| %>
-      <p><%= f.text_area :comment %></p>
-      <p><%= f.submit "コメントする" %></p>
-    <% end %>
+  <div class = "row pt-5">
+    <div class = "col mb-2">
+      <%= form_with(model: [@post, @comment], local: true) do |f| %>
+        <%= f.text_field :comment, class: "col-6" %>
+        <%= f.submit "コメント", class: "btn btn-sm btn-secondary" %>
+      <% end %>
+    </div>
   </div>
 
   <div class = "row">
-    <% @comments.each do |comment| %>
-      <p><%= comment.comment %></p>
-    <% end %>
+    <div class = "col">
+      <table class = "table">
+        <thead>
+          <tr>
+            <th colspan = "3", class = "text-center">コメント一覧</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @comments.each do |comment| %>
+            <tr>
+              <td class = "col-2">
+                <%= attachment_image_tag comment.user, :user_image, size: "30x30", fallback: "no_image.jpg", class: "user_image" %>
+                <%= comment.user.user_name %>
+              </td>
+              <td class = "col-8">
+                <%= comment.comment %>
+              </td>
+              <td class = "col-2">
+                <%= comment.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 
 </div>

@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :autheniticate_user, {only: [:edit]}
+
   def show
     @user = User.find(params[:id])
     @post = @user.posts
