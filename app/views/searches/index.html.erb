@@ -4,9 +4,17 @@
   </div>
 
   <div class = "row">
-    <div class = "col">
+    <div class = "col card-deck">
       <% if @range == "Post" %>
-        <%= render "posts/post_index", posts: @posts %>
+        <% @posts.each do |post| %>
+          <div class = "post_<%= post.id %> col-3">
+            <%= render "posts/post_index", post: post %>
+          </div>
+        <% end %>
+      <% else %>
+        <% @users.each do |user| %>
+          <%= user.user_name %>
+        <% end %>
       <% end %>
     </div>
   </div>

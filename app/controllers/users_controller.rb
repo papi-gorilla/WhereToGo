@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :autheniticate_user, {only: [:edit]}
+
   def show
     @user = User.find(params[:id])
     @post = @user.posts
@@ -26,7 +28,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:user_image, :name, :user_name, :email, :introduction)
+    params.require(:user).permit(:user_image, :user_name, :email, :introduction)
   end
 
 end

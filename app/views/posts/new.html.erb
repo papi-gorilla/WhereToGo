@@ -12,71 +12,31 @@
     </div>
 
     <div class = "col-3">
-      <div class = "form">
-        <label>
-          <input type="text" id="from" value="出発地">
-        </label><br />
+      <div class = "form text-center">
+        <%= form_with model: @post, local: true, id: 'way-points-form', class: "form-group" do |f| %>
+          <%= f.text_field :title, placeholder: "タイトル", class: "form-control form-control-sm" %>
 
-        <label>
-          <div id="waypoint-list"></div>
-          <input type="button" id="waypoint-btn" value="＋" onclick="addForm()"><br>
-        </label><br />
+          <%= f.fields_for :courses do |i| %>
+            <div class = "form-inline">
+              <%= i.number_field :day, placeholder: "日程", class: "form-control form-control-sm col-3" %>
+              <label>日目</label>
+            </div>
+            <%= i.text_field :departure_point, placeholder: "出発地", id: "departure", class: "form-control form-control-sm" %>
+            <div id = "waypoint-list">
+              <% for num in 1..8 do %>
+                <%= i.text_field :"way_point#{num}", id: "way-point-#{num}", class: 'd-none form-control form-control-sm', placeholder: "経由地#{num}" %>
+              <% end %>
+            </div>
+            <input type="button" id="waypoint-btn" value="＋" onclick="addForm()" class = "btn btn-sm btn-secondary"><br>
+            <%= i.text_field :arrival_point, placeholder: "到着地", id: "arrival", class: "form-control form-control-sm" %>
+          <% end %>
 
-        <label>
-          <input type="text" id="to" value="到着地">
-        </label><br />
+          <input type="button" id="course-btn" value="経路を検索", class = "btn btn-sm btn-primary col-12"><br />
+          <%= f.submit "投稿", class: "btn btn-sm btn-success col-12"  %>
 
-        <input type="button" id="route-btn" value="ルートを表示"><br />
-        <input type="button" id="enter-btn" value="予定に反映" onclick="addPlan()">
+        <% end %>
       </div>
     </div>
 
-    <div class = "col-3">
-      <%= form_with model: @post, local: true do |f| %>
-        <%= f.label "タイトル" %>
-        <%= f.text_field :title, class: "float-right" %>
-
-        <%= f.label "出発地" %>
-        <%= f.text_field :departure_point, class: "float-right" %>
-
-        <%= f.label "経由地1" %>
-        <%= f.text_field :way_point1, class: "float-right" %>
-
-        <%= f.label "経由地2" %>
-        <%= f.text_field :way_point2, class: "float-right" %>
-
-        <%= f.label "経由地3" %>
-        <%= f.text_field :way_point3, class: "float-right" %>
-
-        <%= f.label "経由地4" %>
-        <%= f.text_field :way_point4, class: "float-right" %>
-
-        <%= f.label "経由地5" %>
-        <%= f.text_field :way_point5, class: "float-right" %>
-
-        <%= f.label "経由地6" %>
-        <%= f.text_field :way_point6, class: "float-right" %>
-
-        <%= f.label "経由地7" %>
-        <%= f.text_field :way_point7, class: "float-right" %>
-
-        <%= f.label "経由地8" %>
-        <%= f.text_field :way_point8, class: "float-right" %>
-
-        <%= f.label "到着地" %>
-        <%= f.text_field :arrival_point, class: "float-right" %>
-
-        <%= f.submit "投稿" %>
-
-      <% end %>
-
-      <!--経路の出力-->
-      <!--<div id = "exist">-->
-      <!--  <p id = "departure"></p>-->
-      <!--  <p id = "way"></p>-->
-      <!--  <p id = "arrival"></p>-->
-      <!--</div>-->
-
-    </div>
   </div>
 </div>

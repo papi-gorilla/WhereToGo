@@ -4,8 +4,12 @@
   </div>
 
   <div class = "row">
-    <div class = "col">
-      <%= render "posts/post_index", posts: @posts %>
+    <div class = "col card-deck">
+      <% @posts.each do |post| %>
+        <div class = "post_<%= post.id %> col-3">
+          <%= render "posts/post_index", post: post %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

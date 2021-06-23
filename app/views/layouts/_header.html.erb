@@ -11,7 +11,13 @@
             <%= link_to "トップ", root_path, class: "nav-link fas fa-home" %>
           </li>
           <li class = "mx-1">
+            <%= link_to "マイページ", user_path(current_user), class: "nav-link fas fa-user" %>
+          </li>
+          <li class = "mx-1">
             <%= link_to "ランキング", rankings_path, class: "nav-link fas fa-crown" %>
+          </li>
+          <li class  ="mx-1">
+            <%= link_to "新規投稿", new_post_path, class: "nav-link fas fa-plus-square" %>
           </li>
           <li class = "mx-1">
             <%= link_to "通知", notifications_path, class: "nav-link fas fa-bell" %>
@@ -40,7 +46,8 @@
 
       <%= form_with url: searches_path, local: true, method: :get do |f| %>
         <%= f.text_field :word %>
-        <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["前方一致","forward_match"], ["後方一致","backward_match"], ["部分一致","partial_match"]]) %>
+        <%= f.select :range, options_for_select([["ユーザー", "User"], ["投稿", "Post"]]) %>
+        <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["部分一致","partial_match"]]) %>
         <%= f.submit "検索", class: "btn btn-outline-dark btn-light btn-sm" %>
       <% end %>
 
