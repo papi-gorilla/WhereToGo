@@ -11,8 +11,8 @@
       </div>
     </div>
 
-    <div class = "col-6">
-      <div class = "form">
+    <div class = "col-3">
+      <div class = "form text-center">
         <%= form_with model: @post, local: true, id: 'way-points-form', class: "form-group" do |f| %>
           <%= f.text_field :title, placeholder: "タイトル", class: "form-control form-control-sm" %>
 
@@ -27,12 +27,12 @@
                 <%= i.text_field :"way_point#{num}", id: "way-point-#{num}", class: 'd-none form-control form-control-sm', placeholder: "経由地#{num}" %>
               <% end %>
             </div>
-            <input type="button" id="waypoint-btn" value="＋" onclick="addForm()"><br>
+            <input type="button" id="waypoint-btn" value="＋" onclick="addForm()" class = "btn btn-sm btn-secondary"><br>
             <%= i.text_field :arrival_point, placeholder: "到着地", id: "arrival", class: "form-control form-control-sm" %>
           <% end %>
 
-          <input type="button" id="course-btn" value="経路を検索"><br />
-          <%= f.submit "投稿" %>
+          <input type="button" id="course-btn" value="経路を検索", class = "btn btn-sm btn-primary col-12"><br />
+          <%= f.submit "投稿", class: "btn btn-sm btn-success col-12"  %>
 
         <% end %>
       </div>
