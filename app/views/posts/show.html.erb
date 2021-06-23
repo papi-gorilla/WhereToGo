@@ -42,8 +42,10 @@
             <td colspan = "4", class = "text-center">
               <%= @post.title %>
               (<%= @courses.length %>日間)
-              <%= link_to edit_post_path(@post), class: "edit-btn" do %>
-                <i class="fas fa-edit"></i>
+              <% if @post.user == current_user %>
+                <%= link_to edit_post_path(@post), class: "edit-btn" do %>
+                  <i class="fas fa-edit"></i>
+                <% end %>
               <% end %>
             </td>
           </tr>
@@ -55,8 +57,10 @@
                 <%= course.day %>日目
               </td>
               <td class = "text-right">
-                <%= link_to course_path(course), method: :delete, class: "delete-btn" do %>
-                  <i class="fas fa-trash-alt"></i>
+                <% if @post.user == current_user %>
+                  <%= link_to course_path(course), method: :delete, class: "delete-btn" do %>
+                    <i class="fas fa-trash-alt"></i>
+                  <% end %>
                 <% end %>
               </td>
             </tr>
@@ -94,8 +98,10 @@
           <% @comments.each do |comment| %>
             <tr>
               <td class = "col-2">
-                <%= attachment_image_tag comment.user, :user_image, size: "30x30", fallback: "no_image.jpg", class: "user_image" %>
-                <%= comment.user.user_name %>
+                <%= link_to user_path(comment.user), class: "user-show-link" do %>
+                  <%= attachment_image_tag comment.user, :user_image, size: "30x30", fallback: "no_image.jpg", class: "user_image" %>
+                  <%= comment.user.user_name %>
+                <% end %>
               </td>
               <td class = "col-8">
                 <%= comment.comment %>
@@ -103,6 +109,13 @@
               <td class = "col-2">
                 <%= comment.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
               </td>
+              <% if comment.user == current_user %>
+                <td>
+                  <%= link_to post_comment_path(comment), method: :delete, class: "comment-btn" do %>
+                    <i class="fas fa-trash-alt"></i>
+                  <% end %>
+                </td>
+              <% end %>
             </tr>
           <% end %>
         </tbody>
