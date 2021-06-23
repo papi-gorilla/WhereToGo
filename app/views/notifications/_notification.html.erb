@@ -4,23 +4,27 @@
       <% visitor = notification.visitor %>
       <% visited = notification.visited %>
 
-      <span>
-        <%= link_to user_path(visitor) do %>
-          <%= visitor.user_name %>
-        <% end %>
-        さんが
-      </span>
+      <div class = "card col-6 mb-3 mx-auto">
+        <span>
+          <%= link_to user_path(visitor), class: "user-show-link" do %>
+            <%= attachment_image_tag visitor, :user_image, size: "30x30" %>
+            <%= visitor.user_name %>
+          <% end %>
+          さんが
 
-      <% case notification.action %>
-        <% when "comment" then %>
-          <%= link_to "あなたの投稿", notification.post %>
-          <span>にコメントしました</span>
-        <% when "favorite" %>
-          <%= link_to "あなたの投稿", notification.post %>
-          <span>にいいねしました</span>
-        <% when "follow" %>
-          <span>あなたをフォローしました</span>
-      <% end %>
+          <% case notification.action %>
+            <% when "comment" then %>
+              <%= link_to "あなたの投稿", notification.post, class: "post-title-link" %>
+              <span>にコメントしました</span>
+            <% when "favorite" %>
+              <%= link_to "あなたの投稿", notification.post, class: "post-title-link" %>
+              <span>にいいねしました</span>
+            <% when "follow" %>
+              <span>あなたをフォローしました</span>
+          <% end %>
+        </span>
+      </div>
+
 
     </div>
   </div>
