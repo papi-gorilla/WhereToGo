@@ -4,14 +4,19 @@
   </div>
 
   <div class = "row">
-    <div class = "col">
+    <div class = "col-6 mx-auto">
       <% notifications = @notifications.where.not(visitor_id: current_user.id) %>
       <% if @notifications.exists? %>
+        <p class = "text-right pr-3">
+          <%= link_to "全件削除", destroy_all_notifications_path, method: :delete, class: "btn btn-sm btn-danger" %>
+        </p>
+
+
         <div>
           <%= render notifications %>
         </div>
       <% else %>
-        <p>通知はありません</p>
+        <p class = "text-center">通知はありません</p>
       <% end %>
     </div>
   </div>
