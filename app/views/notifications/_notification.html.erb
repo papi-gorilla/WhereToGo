@@ -22,6 +22,9 @@
             <% when "follow" %>
               <span>あなたをフォローしました</span>
           <% end %>
+          <time datetime="<%= notification.created_at %>">
+            <%= time_ago_in_words(notification.created_at) %>
+          </time>
         </span>
       </div>
 

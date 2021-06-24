@@ -1,7 +1,7 @@
 class FavoritesController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
-    if user_signed_in?
+    if @post.user != current_user
       favorite = current_user.favorites.new(post_id: @post.id)
       favorite.save
       @post.create_notification_favorite!(current_user)
