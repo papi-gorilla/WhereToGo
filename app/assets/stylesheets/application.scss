@@ -55,7 +55,7 @@ li{
 
 .user_image{
   border-radius: 50%;
-  border: 1px solid #5f9ea0;
+  border: 1px solid #dcdcdc;
 }
 
 #map{
@@ -72,11 +72,11 @@ li{
   color: #c71585;
 }
 
-.post-title-link, .user-show-link, .tutorial-link{
+.post-title-link, .user-show-link, .tutorial-link, .follow-btn, .following-link, .followed-link{
   color: #5f9ea0;
 }
 
-.post-title-link:hover, .user-show-link:hover, .tutorial-link:hover{
+.post-title-link:hover, .user-show-link:hover, .tutorial-link:hover, .follow-btn:hover, .following-link:hover, .followed-link:hover{
   text-decoration: none;
   color: gray;
 }
@@ -102,4 +102,16 @@ li{
 
 .comment-btn{
   color: gray;
+}
+
+.user-introduction{
+  border-top: 1px solid #dcdcdc;
+  border-bottom: 1px solid #dcdcdc;
+  padding: 50px 0;
+}
+
+.image-prev:hover {
+  cursor: pointer;
+  opacity: 0.7;
+  transform: scale(1.01, 1.01);
 }
