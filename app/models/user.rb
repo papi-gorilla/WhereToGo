@@ -7,13 +7,17 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
-
   has_many :following, class_name: "Relationship", foreign_key: "following_id", dependent: :destroy
   has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   has_many :following_user, through: :following, source: :followed
   has_many :followed_user, through: :followed, source: :following
   has_many :active_notifications, class_name: "Notification", foreign_key: "visitor_id", dependent: :destroy
   has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
+
+  validates :user_name, length: {maximum: 20}, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true
+
+  attachment :user_image
 
   def follow(user_id)
     following.create(followed_id: user_id)
@@ -47,7 +51,5 @@ class User < ApplicationRecord
       @user = User.all
     end
   end
-
-  attachment :user_image
 
 end
