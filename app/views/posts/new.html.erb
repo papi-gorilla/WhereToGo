@@ -13,6 +13,8 @@
 
     <div class = "col-xl-3">
       <div class = "form text-center">
+        <%= render "layouts/error_message", obj: @post %>
+
         <%= form_with model: @post, local: true, id: 'way-points-form', class: "form-group" do |f| %>
           <%= f.text_field :title, placeholder: "タイトル", class: "form-control form-control-sm" %>
 

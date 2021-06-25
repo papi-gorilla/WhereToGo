@@ -7,6 +7,8 @@
     <div class = "col-xl-6 mx-auto">
       <div class = "card text-center">
         <div class = "card-body">
+          <%= render "layouts/error_message", obj: @user %>
+
           <%= form_with model: @user, local: true do |f| %>
             <%= f.file_field :user_image, class: "image-field", style: "display: none" %>
             <%= attachment_image_tag @user, :user_image, size: "100x100", fallback: "no_image.jpg", onClick: "$('.image-field').click()", class: "image-prev mb-5" %><br />

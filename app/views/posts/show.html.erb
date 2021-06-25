@@ -78,6 +78,8 @@
 
   <div class = "row pt-5">
     <div class = "col mb-2">
+      <%= render "layouts/error_message", obj: @comment %>
+
       <%= form_with(model: [@post, @comment], local: true) do |f| %>
         <%= f.text_field :comment, class: "col-6" %>
         <%= f.submit "コメント", class: "btn btn-sm btn-secondary" %>

@@ -73,3 +73,5 @@ gem 'impressionist', '~>1.6.1'
 group :production do
   gem 'mysql2'
 end
+gem 'rails-i18n', '~> 5.1'
+gem 'devise-i18n'
