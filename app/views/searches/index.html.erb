@@ -12,10 +12,9 @@
           </div>
         <% end %>
       <% else %>
-        <% @users.each do |user| %>
-          <%= user.user_name %>
-        <% end %>
+        <%= render "users/user_index", users: @users %>
       <% end %>
     </div>
   </div>
+  
 </div>
