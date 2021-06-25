@@ -4,7 +4,7 @@
   </div>
 
   <div class = "row">
-    <div class = "col card-deck">
+    <div class = "col card-deck mx-auto">
       <% @posts.each do |post| %>
         <div class = "post_<%= post.id %> col-3">
           <%= render "posts/post_index", post: post %>

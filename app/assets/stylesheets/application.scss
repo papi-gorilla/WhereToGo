@@ -18,6 +18,12 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+*{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
 body{
   display: flex;
   flex-flow: column;
@@ -116,3 +122,18 @@ li{
   transform: scale(1.01, 1.01);
 }
 
+.fa-bars{
+  color: white;
+}
+
+.nav-menu .active{
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #4682b4;
+  color: #fff;
+  width: 100%;
+  min-height: 30%;
+  display: none;
+  z-index: 9;
+}

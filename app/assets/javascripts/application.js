@@ -40,7 +40,7 @@ function initMap(){
     // 経由地1から8までの入力された情報を空の配列に入れる
     const waypoint = document.getElementsByClassName("waypoint")
     waypointlist = [];
-    
+
     for (var i = 0; i<waypoint.length; i++){
       waypointlist.push({location: waypoint[i].value, stopover: true});
     };
@@ -68,8 +68,10 @@ function addForm(){
   };
 }
 
-$(".search-btn").click(function(){
-  $(this).toggleClass('btnactive');
-  $(".search-wrap").toggleClass('panelactive');
-  $('.search-word').focus();
+$(function() {
+  $('.nav-icon').on('click', function(event) {
+    $(this).toggleClass('active');
+    $('.nav-menu').fadeToggle();
+    event.preventDefault();
+  });
 });
