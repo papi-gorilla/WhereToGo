@@ -4,7 +4,7 @@
   </div>
 
   <div class = "row">
-    <div class ="col-6">
+    <div class ="col-xl-6 mb-3">
       <div class = "box">
         <div id = "map"></div>
         <script src = "https://maps.googleapis.com/maps/api/js?key=<%= ENV['GoogleMapAPI'] %>&callback=initMap" async defer></script>
@@ -12,7 +12,7 @@
     </div>
 
     <% if @post.user == current_user %>
-      <div class = "col-3">
+      <div class = "col-xl-3 mb-3">
         <div class = "form text-center">
           <%= form_with model: @course, url: courses_path(post_id: @post.id), local: true, id: 'way-points-form', class: "form-group" do |f| %>
             <div class = "form-inline">
@@ -35,7 +35,7 @@
       </div>
     <% end %>
 
-    <div class = "col-3">
+    <div class = "col-xl-3">
       <table class = "table">
         <thead>
           <tr>

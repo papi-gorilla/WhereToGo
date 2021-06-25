@@ -7,7 +7,7 @@
     <div class = "col card-deck">
       <% if @range == "Post" %>
         <% @posts.each do |post| %>
-          <div class = "post_<%= post.id %> col-3">
+          <div class = "post_<%= post.id %>">
             <%= render "posts/post_index", post: post %>
           </div>
         <% end %>
@@ -16,5 +16,5 @@
       <% end %>
     </div>
   </div>
-  
+
 </div>

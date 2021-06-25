@@ -78,11 +78,11 @@ li{
   color: #c71585;
 }
 
-.post-title-link, .user-show-link, .tutorial-link, .follow-btn, .following-link, .followed-link{
+.post-title-link, .user-show-link, .tutorial-link, .follow-btn, .following-link, .followed-link, .session-link{
   color: #5f9ea0;
 }
 
-.post-title-link:hover, .user-show-link:hover, .tutorial-link:hover, .follow-btn:hover, .following-link:hover, .followed-link:hover{
+.post-title-link:hover, .user-show-link:hover, .tutorial-link:hover, .follow-btn:hover, .following-link:hover, .followed-link:hover, .session-link:hover{
   text-decoration: none;
   color: gray;
 }
@@ -92,10 +92,6 @@ li{
   background-image: image-url("about.jpg");
   background-size: cover;
   background-blend-mode: color-dodge;
-}
-
-.about-text{
-  line-height: 400px;
 }
 
 .delete-btn{

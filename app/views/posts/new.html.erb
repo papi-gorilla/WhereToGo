@@ -4,14 +4,14 @@
   </div>
 
   <div class = "row">
-    <div class ="col-6">
+    <div class ="col-xl-6 mb-3">
       <div class = "box">
         <div id = "map"></div>
         <script src = "https://maps.googleapis.com/maps/api/js?key=<%= ENV['GoogleMapAPI'] %>&callback=initMap" async defer></script>
       </div>
     </div>
 
-    <div class = "col-3">
+    <div class = "col-xl-3">
       <div class = "form text-center">
         <%= form_with model: @post, local: true, id: 'way-points-form', class: "form-group" do |f| %>
           <%= f.text_field :title, placeholder: "タイトル", class: "form-control form-control-sm" %>
