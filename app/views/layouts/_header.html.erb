@@ -1,58 +1,63 @@
 <header>
-  <nav class = "navbar navbar-expand-lg">
-    <div class = "container" >
+  <div class = "container">
+    <nav class = "navbar navbar-expand-xl">
       <%= link_to root_path do %>
         <%= image_tag "logo.png", size: "200x100" %>
       <% end %>
 
-      <ul class = "navbar-nav mx-auto">
-        <% if user_signed_in? %>
-          <li class = "mx-1">
-            <%= link_to "トップ", root_path, class: "nav-link fas fa-home" %>
-          </li>
-          <li class = "mx-1">
-            <%= link_to "マイページ", user_path(current_user), class: "nav-link fas fa-user" %>
-          </li>
-          <li class = "mx-1">
-            <%= link_to "ランキング", rankings_path, class: "nav-link fas fa-crown" %>
-          </li>
-          <li class  ="mx-1">
-            <%= link_to "新規投稿", new_post_path, class: "nav-link fas fa-plus-square" %>
-          </li>
-          <li class = "mx-1">
-            <%= link_to "通知", notifications_path, class: "nav-link fas fa-bell" %>
-          </li>
-          <li class = "mx-1">
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link fas fa-sign-out-alt" %>
-          </li>
-        <% else %>
-          <li class = "mx-1">
-            <%= link_to "トップ", root_path, class: "nav-link fas fa-home" %>
-          </li>
-          <li class = "mx-1">
-            <%= link_to "アバウト", about_path, class: "nav-link fas fa-book-open" %>
-          </li>
-          <li class = "mx-1">
-            <%= link_to "ランキング", rankings_path, class: "nav-link fas fa-crown" %>
-          </li>
-          <li class = "mx-1">
-            <%= link_to "ログイン", new_user_session_path, class: "nav-link fas fa-sign-in-alt" %>
-          </li>
-          <li class = "mx-1">
-            <%= link_to "新規登録", new_user_registration_path, class: "nav-link fas fa-user-plus" %>
-          </li>
+      <div class = "nav-icon navbar-toggler" data-toggle = "collapse">
+        <i class = "fas fa-bars"></i>
+      </div>
+
+      <div class = "nav-menu collapse navbar-collapse">
+        <ul class = "navbar-nav mx-auto">
+          <% if user_signed_in? %>
+            <li class = "mx-1">
+              <%= link_to "トップ", root_path, class: "nav-link fas fa-home" %>
+            </li>
+            <li class = "mx-1">
+              <%= link_to "マイページ", user_path(current_user), class: "nav-link fas fa-user" %>
+            </li>
+            <li class = "mx-1">
+              <%= link_to "ランキング", rankings_path, class: "nav-link fas fa-crown" %>
+            </li>
+            <li class  ="mx-1">
+              <%= link_to "新規投稿", new_post_path, class: "nav-link fas fa-plus-square" %>
+            </li>
+            <li class = "mx-1">
+              <%= link_to "通知", notifications_path, class: "nav-link fas fa-bell" %>
+            </li>
+            <li class = "mx-1">
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link fas fa-sign-out-alt" %>
+            </li>
+          <% else %>
+            <li class = "mx-1">
+              <%= link_to "トップ", root_path, class: "nav-link fas fa-home" %>
+            </li>
+            <li class = "mx-1">
+              <%= link_to "アバウト", about_path, class: "nav-link fas fa-book-open" %>
+            </li>
+            <li class = "mx-1">
+              <%= link_to "ランキング", rankings_path, class: "nav-link fas fa-crown" %>
+            </li>
+            <li class = "mx-1">
+              <%= link_to "ログイン", new_user_session_path, class: "nav-link fas fa-sign-in-alt" %>
+            </li>
+            <li class = "mx-1">
+              <%= link_to "新規登録", new_user_registration_path, class: "nav-link fas fa-user-plus" %>
+            </li>
+          <% end %>
+        </ul>
+
+        <%= form_with url: searches_path, local: true, method: :get, class: "form-group" do |f| %>
+          <%= f.text_field :word, class: "form-control form-control-sm" %>
+          <%= f.select :range, options_for_select([["ユーザー", "User"], ["投稿", "Post"]]), class: "form-control" %>
+          <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["部分一致","partial_match"]]), class: "form-control" %><br />
+          <%= f.submit "検索", class: "btn btn-outline-dark btn-light btn-sm form-control form-control" %>
         <% end %>
-      </ul>
 
-      <%= form_with url: searches_path, local: true, method: :get do |f| %>
-        <%= f.text_field :word %>
-        <%= f.select :range, options_for_select([["ユーザー", "User"], ["投稿", "Post"]]) %>
-        <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["部分一致","partial_match"]]) %>
-        <%= f.submit "検索", class: "btn btn-outline-dark btn-light btn-sm" %>
-      <% end %>
+      </div>
 
-    </div>
-
-  </nav>
-
+    </nav>
+  </div>
 </header>

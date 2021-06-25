@@ -24,6 +24,7 @@ function initMap(){
   const DS = new google.maps.DirectionsService();
   const DR = new google.maps.DirectionsRenderer();
 
+  // Google mapを表示する
   const map = new google.maps.Map(document.getElementById("map"),{
     center: {lat: 35.170981, lng: 136.881556},
     zoom: 15
@@ -31,11 +32,12 @@ function initMap(){
 
   DR.setMap(map);
 
-  // 経路の表示
+  // フォームに入力された情報から経路を表示する
   document.getElementById("course-btn").onclick = function search(){
     const departure = document.getElementById("departure").value;
     const arrival = document.getElementById("arrival").value;
 
+    // 経由地1から8までの入力された情報を空の配列に入れる
     const waypoint = document.getElementsByClassName("waypoint")
     waypointlist = [];
 
@@ -56,7 +58,7 @@ function initMap(){
   };
 };
 
-// 経由地の追加
+// 経由地のフォームを表示させる
 var j = 1;
 function addForm(){
   if (j < 9){
@@ -65,3 +67,11 @@ function addForm(){
     j++ ;
   };
 }
+
+$(function() {
+  $('.nav-icon').on('click', function(event) {
+    $(this).toggleClass('active');
+    $('.nav-menu').fadeToggle();
+    event.preventDefault();
+  });
+});

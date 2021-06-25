@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "posts#index"
   get "/about" => "homes#about"
-  get "/tutorial" => "homes#tutorial"
   resources :users, only:[:show, :edit, :update] do
     member do
       get :following, :followed
@@ -19,5 +18,6 @@ Rails.application.routes.draw do
   post "follow/:id" => "relationships#follow", as: "follow"
   delete "unfollow/:id" => "relationships#unfollow", as: "unfollow"
   resources :notifications, only:[:index]
+  delete "notifications" => "notifications#destroy_all", as: "destroy_all_notifications"
 
 end
