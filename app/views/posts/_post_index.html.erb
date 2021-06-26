@@ -1,0 +1,21 @@
+<div class = "card mb-3">
+  <div class = "card-header text-center">
+    <%= link_to post.title, post_path(post), class: "post-title-link" %><br />
+    <%= post.courses.length %>日間
+  </div>
+
+  <div class = "card-body text-center">
+    <%= link_to user_path(post.user), class: "user-show-link" do %>
+      <%= attachment_image_tag post.user, :user_image, size: "40x40" %>
+      <%= post.user.user_name %>
+    <% end %>
+  </div>
+
+  <div class = "card-footer text-right">
+    <%= post.created_at.strftime('%Y/%m/%d %H時%M分') %></br>
+    <i class="far fa-comment-dots"></i><%= post.comments.count %>
+    <%= render "posts/post_favorite", post: post %>
+    <i class="far fa-eye"></i><%= post.impressionist_count(:filter => :session_hash) %>
+  </div>
+
+</div>

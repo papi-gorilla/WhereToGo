@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :autheniticate_user, {only: [:edit]}
+
   def show
     @user = User.find(params[:id])
     @post = @user.posts
@@ -10,13 +12,26 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    redirect_to user_path(@user)
+    if @user.update(user_params)
+      redirect_to user_path(@user)
+    else
+      render "edit"
+    end
   end
 
-private
+  def following
+    @user = User.find(params[:id])
+    @users = @user.following_user
+  end
+
+  def followed
+    @user = User.find(params[:id])
+    @users = @user.followed_user
+  end
+
+  private
   def user_params
-    params.require(:user).permit(:user_image, :name, :user_name, :email, :introduction)
+    params.require(:user).permit(:user_image, :user_name, :email, :introduction)
   end
 
 end

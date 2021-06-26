@@ -1,8 +1,15 @@
 class RelationshipsController < ApplicationController
-  def create
+  def follow
+    user = User.find(params[:id])
+    current_user.follow(params[:id])
+    user.create_notification_follow!(current_user)
+    redirect_to user_path(user)
   end
-  
-  def destroy
+
+  def unfollow
+    user = User.find(params[:id])
+    current_user.unfollow(params[:id])
+    redirect_to user_path(user)
   end
-  
+
 end

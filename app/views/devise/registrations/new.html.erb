@@ -1,36 +1,36 @@
 <div class = "container px-5 px-sm-0">
   <div class = "row">
-    <h3 class = "mx-auto">新規登録画面</h3>
+    <h3 class = "mx-auto fas fa-sign-in-alt">新規登録</h3>
   </div>
 
   <div class = "row">
     <div class = "col text-center">
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= render "devise/shared/error_messages", resource: resource %>
+      <div class = "card col-lg-6 mx-auto">
+        <div class = "card-body">
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= render "devise/shared/error_messages", re: resource %>
 
-        <%= f.label :氏名 %>
-        <%= f.text_field :name, autofocus: true, class: "form-control col-3 mx-auto" %><br />
+            <%= f.label :ユーザー名 %>
+            <%= f.text_field :user_name, autofocus: true, class: "form-control col-6 mx-auto" %><br />
 
-        <%= f.label :ユーザー名 %>
-        <%= f.text_field :user_name, autofocus: true, class: "form-control col-3 mx-auto" %><br />
+            <%= f.label :メールアドレス %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control col-6 mx-auto" %><br />
 
-        <%= f.label :メールアドレス %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control col-3 mx-auto" %><br />
+            <%= f.label :パスワード %>
+            <% if @minimum_password_length %>
+              <label>(<%= @minimum_password_length %> 文字以上)</label>
+            <% end %>
+            <%= f.password_field :password, autocomplete: "new-password", class: "form-control col-6 mx-auto" %><br />
 
-        <%= f.label :パスワード %>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %>
-        <%= f.password_field :password, autocomplete: "new-password", class: "form-control col-3 mx-auto" %><br />
+            <%= f.label :パスワード（確認） %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control col-6 mx-auto" %><br />
 
-        <%= f.label :パスワード（確認） %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control col-3 mx-auto" %><br />
+            <%= f.submit "新規登録", class: "btn btn-success" %>
 
-        <%= f.submit "新規登録", class: "btn btn-success" %>
+          <% end %>
+        </div>
+      </div>
 
-      <% end %>
-
-      <%= render "devise/shared/links" %>
 
     </div>
   </div>

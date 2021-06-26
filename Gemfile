@@ -69,6 +69,9 @@ gem "jquery-rails"
 gem "font-awesome-sass", "~> 5.13"
 gem "dotenv-rails"
 gem "kaminari", "~> 0.17.0"
+gem 'impressionist', '~>1.6.1'
 group :production do
   gem 'mysql2'
 end
+gem 'rails-i18n', '~> 5.1'
+gem 'devise-i18n'
