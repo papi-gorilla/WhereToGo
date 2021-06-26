@@ -10,12 +10,15 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     @course = Course.new
-    @post.save
-    redirect_to post_path(@post)
+    if @post.save
+      redirect_to post_path(@post)
+    else
+      render "new"
+    end
   end
 
   def index
-    @posts = Post.all
+    @posts = Post.order(created_at: :desc)
   end
 
   def show
@@ -23,7 +26,7 @@ class PostsController < ApplicationController
     @course = Course.new
     @courses = @post.courses.order(:day)
     @comment = Comment.new
-    @comments = @post.comments
+    @comments = @post.comments.order(created_at: :desc)
     impressionist(@post, nil, unique: [:session_hash.to_s])
   end
 

@@ -8,6 +8,8 @@ class Post < ApplicationRecord
   accepts_nested_attributes_for :courses
 
   is_impressionable counter_cache: true
+  
+  validates :title, length: {maximum: 50}, presence: true
 
   def self.looks(search, word)
     if search == "perfect_match"

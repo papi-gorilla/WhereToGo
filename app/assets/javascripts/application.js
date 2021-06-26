@@ -68,7 +68,7 @@ function addForm(){
   };
 }
 
-$(function() {
+$(function(){
   $('.nav-icon').on('click', function(event) {
     $(this).toggleClass('active');
     $('.nav-menu').fadeToggle();
