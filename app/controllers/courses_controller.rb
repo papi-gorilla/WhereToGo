@@ -3,8 +3,14 @@ class CoursesController < ApplicationController
     @post = Post.find(params[:post_id])
     @course = Course.new(course_params)
     @course.post_id = @post.id
-    @course.save
-    redirect_to post_path(@post)
+    if @course.save
+      redirect_to post_path(@post)
+    else
+      @courses = @post.courses.order(:day)
+      @comment = Comment.new
+      @comments = @post.comments
+      render "posts/show"
+    end
   end
 
   def edit

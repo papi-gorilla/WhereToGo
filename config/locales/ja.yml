@@ -8,6 +8,18 @@ ja:
     attributes:
       comment:
         comment: コメント
+      post/courses:
+        day: 日程
+        departure_point: 出発地
+        arrival_point: 到着地
+        way_point1: 経由地1
+        way_point2: 経由地2
+        way_point3: 経由地3
+        way_point4: 経由地4
+        way_point5: 経由地5
+        way_point6: 経由地6
+        way_point7: 経由地7
+        way_point8: 経由地8
       course:
         day: 日程
         departure_point: 出発地

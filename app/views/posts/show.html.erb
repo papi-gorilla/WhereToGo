@@ -14,6 +14,8 @@
     <% if @post.user == current_user %>
       <div class = "col-xl-3 mb-3">
         <div class = "form text-center">
+          <%= render "layouts/error_message", obj: @course %>
+
           <%= form_with model: @course, url: courses_path(post_id: @post.id), local: true, id: 'way-points-form', class: "form-group" do |f| %>
             <div class = "form-inline">
               <%= f.number_field :day, placeholder: "日程", class: "form-control form-control-sm col-3" %>
@@ -52,7 +54,7 @@
         </thead>
         <tbody>
           <% @courses.each do |course| %>
-            <tr class = "table-info" >
+            <tr class = "table-info" id = "day_courses" >
               <td colspan = "2">
                 <%= course.day %>日目
               </td>
@@ -69,6 +71,55 @@
               <td>→</td>
               <td><%= course.arrival_point %></td>
             </tr>
+
+            <% if course.way_point1.present? %>
+            <tr class = "d-none" id = "way_point_list">
+              <td><%= course.way_point1 %></td>
+            </tr>
+            <% end %>
+
+            <% if course.way_point2.present? %>
+            <tr class = "d-none">
+              <td><%= course.way_point2 %></td>
+            </tr>
+            <% end %>
+
+            <% if course.way_point3.present? %>
+            <tr class = "d-none">
+              <td><%= course.way_point3 %></td>
+            </tr>
+            <% end %>
+
+            <% if course.way_point4.present? %>
+            <tr class = "d-none">
+              <td><%= course.way_point4 %></td>
+            </tr>
+            <% end %>
+
+            <% if course.way_point5.present? %>
+            <tr class = "d-none">
+              <td><%= course.way_point5 %></td>
+            </tr>
+            <% end %>
+
+            <% if course.way_point6.present? %>
+            <tr class = "d-none">
+              <td><%= course.way_point6 %></td>
+            </tr>
+            <% end %>
+
+            <% if course.way_point7.present? %>
+            <tr class = "d-none">
+              <td><%= course.way_point7 %></td>
+            </tr>
+            <% end %>
+
+            <% if course.way_point8.present? %>
+            <tr class = "d-none">
+              <td><%= course.way_point8 %></td>
+            </tr>
+            <% end %>
+
           <% end %>
 
         </tbody>
@@ -113,7 +164,7 @@
               </td>
               <% if comment.user == current_user %>
                 <td>
-                  <%= link_to post_comment_path(comment), method: :delete, class: "comment-btn" do %>
+                  <%= link_to post_comment_path(@post, comment), method: :delete, class: "comment-btn" do %>
                     <i class="fas fa-trash-alt"></i>
                   <% end %>
                 </td>
