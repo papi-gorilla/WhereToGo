@@ -75,9 +75,3 @@ $(function(){
     event.preventDefault();
   });
 });
-
-$(function(){
-  $("#day_courses").on("click", function(){
-  
-  });
-});

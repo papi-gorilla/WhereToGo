@@ -52,9 +52,12 @@
             </td>
           </tr>
         </thead>
+
+
+
         <tbody>
           <% @courses.each do |course| %>
-            <tr class = "table-info" id = "day_courses" >
+            <tr class = "table-info day_courses<%= course.day %>" onclick = "onclickCourseDay(<%= course.day %>)">
               <td colspan = "2">
                 <%= course.day %>日目
               </td>
@@ -67,62 +70,64 @@
               </td>
             </tr>
             <tr>
-              <td><%= course.departure_point %></td>
+              <td class = "departure<%= course.day %>"><%= course.departure_point %></td>
               <td>→</td>
-              <td><%= course.arrival_point %></td>
+              <td class = "arrival<%= course.day %>"><%= course.arrival_point %></td>
             </tr>
 
             <% if course.way_point1.present? %>
-            <tr class = "d-none" id = "way_point_list">
+            <tr class = "d-none way_list<%= course.day %>">
               <td><%= course.way_point1 %></td>
             </tr>
             <% end %>
 
             <% if course.way_point2.present? %>
-            <tr class = "d-none">
+            <tr class = "d-none way_list<%= course.day %>">
               <td><%= course.way_point2 %></td>
             </tr>
             <% end %>
 
             <% if course.way_point3.present? %>
-            <tr class = "d-none">
+            <tr class = "d-none way_list<%= course.day %>">
               <td><%= course.way_point3 %></td>
             </tr>
             <% end %>
 
             <% if course.way_point4.present? %>
-            <tr class = "d-none">
+            <tr class = "d-none way_list<%= course.day %>">
               <td><%= course.way_point4 %></td>
             </tr>
             <% end %>
 
             <% if course.way_point5.present? %>
-            <tr class = "d-none">
+            <tr class = "d-none way_list<%= course.day %>">
               <td><%= course.way_point5 %></td>
             </tr>
             <% end %>
 
             <% if course.way_point6.present? %>
-            <tr class = "d-none">
+            <tr class = "d-none way_list<%= course.day %>">
               <td><%= course.way_point6 %></td>
             </tr>
             <% end %>
 
             <% if course.way_point7.present? %>
-            <tr class = "d-none">
+            <tr class = "d-none way_list<%= course.day %>">
               <td><%= course.way_point7 %></td>
             </tr>
             <% end %>
 
             <% if course.way_point8.present? %>
-            <tr class = "d-none">
+            <tr class = "d-none way_list<%= course.day %>">
               <td><%= course.way_point8 %></td>
             </tr>
             <% end %>
-
           <% end %>
 
         </tbody>
+
+
+
       </table>
     </div>
   </div>
