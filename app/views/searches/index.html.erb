@@ -4,15 +4,18 @@
   </div>
 
   <div class = "row">
-    <div class = "col card-deck">
       <% if @range == "Post" %>
-        <% @posts.each do |post| %>
-          <div class = "post_<%= post.id %>">
-            <%= render "posts/post_index", post: post %>
-          </div>
-        <% end %>
+        <div class = "col card-deck mx-auto">
+          <% @posts.each do |post| %>
+            <div class = "post_<%= post.id %>">
+              <%= render "posts/post_index", post: post %>
+            </div>
+          <% end %>
+        </div>
       <% else %>
-        <%= render "users/user_index", users: @users %>
+        <div class = "col-lg-6 mx-auto">
+          <%= render "users/user_index", users: @users %>
+        </div>
       <% end %>
     </div>
   </div>
