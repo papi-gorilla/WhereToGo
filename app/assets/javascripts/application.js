@@ -21,11 +21,11 @@
 //= require_tree .
 
 function initMap(){
-  const DS = new google.maps.DirectionsService();
-  const DR = new google.maps.DirectionsRenderer();
+  var DS = new google.maps.DirectionsService();
+  var DR = new google.maps.DirectionsRenderer();
 
   // Google mapを表示する
-  const map = new google.maps.Map(document.getElementById("map"),{
+  var map = new google.maps.Map(document.getElementById("map"),{
     center: {lat: 35.170981, lng: 136.881556},
     zoom: 15
   });
@@ -34,18 +34,18 @@ function initMap(){
 
   // フォームに入力された情報から経路を表示する
   document.getElementById("course-btn").onclick = function search(){
-    const departure = document.getElementById("departure").value;
-    const arrival = document.getElementById("arrival").value;
+    var departure = document.getElementById("departure").value;
+    var arrival = document.getElementById("arrival").value;
 
     // 経由地1から8までの入力された情報を空の配列に入れる
-    const waypoint = document.getElementsByClassName("waypoint")
+    var waypoint = document.getElementsByClassName("waypoint")
     waypointlist = [];
 
     for (var i = 0; i<waypoint.length; i++){
       waypointlist.push({location: waypoint[i].value, stopover: true});
     };
 
-    const request = {
+    var request = {
       origin: departure,
       destination: arrival,
       waypoints: waypointlist,
