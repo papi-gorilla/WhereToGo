@@ -38,7 +38,7 @@ function initMap(){
     var arrival = document.getElementById("arrival").value;
 
     // 経由地1から8までの入力された情報を空の配列に入れる
-    var waypoint = document.getElementsByClassName("waypoint")
+    var waypoint = document.getElementsByClassName("waypoint");
     waypointlist = [];
 
     for (var i = 0; i<waypoint.length; i++){
@@ -67,11 +67,3 @@ function addForm(){
     j++ ;
   };
 }
-
-$(function(){
-  $('.nav-icon').on('click', function(event) {
-    $(this).toggleClass('active');
-    $('.nav-menu').fadeToggle();
-    event.preventDefault();
-  });
-});

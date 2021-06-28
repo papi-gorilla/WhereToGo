@@ -19,6 +19,7 @@ class User < ApplicationRecord
 
   attachment :user_image
 
+  # フォロー・フォロー解除のメソッド
   def follow(user_id)
     following.create(followed_id: user_id)
   end
@@ -31,6 +32,7 @@ class User < ApplicationRecord
     following_user.include?(user)
   end
 
+  # 自分がフォローされた際の通知を作成・保存
   def create_notification_follow!(current_user)
     temp = Notification.where(["visitor_id = ? and visited_id = ? and action = ? ",current_user.id, id, "follow"])
     if temp.blank?
@@ -42,6 +44,7 @@ class User < ApplicationRecord
     end
   end
 
+  # 入力されたキーワードと完全一致及び部分一致しているユーザーを検索
   def self.looks(search, word)
     if search == "perfect_match"
       @user = User.where("user_name LIKE?","#{word}")
