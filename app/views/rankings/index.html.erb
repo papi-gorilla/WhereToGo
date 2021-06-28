@@ -4,8 +4,9 @@
   </div>
 
   <div class = "row">
-    <div class = "col card-deck">
-      <% @posts.each do |post| %>
+    <div class = "col-sm-3 mx-auto">
+      <% @posts.each.with_index(1) do |post, i| %>
+        <h5 class = "text-center ranking-number"><%= "#{i}位" %></h5>
         <div class = "post_<%= post.id %>">
           <%= render "posts/post_index", post: post %>
         </div>

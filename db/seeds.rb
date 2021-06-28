@@ -19,3 +19,21 @@ User.all.each do |user|
     title: "山陰旅行一周旅行！"
   )
 end
+
+Post.all.each do |post|
+  post.courses.create!(
+    day: 1,
+    departure_point: "鳥取駅",
+    way_point1: "鳥取砂丘",
+    way_point2: "米子駅",
+    arrival_point: "境港"
+  )
+end
+
+Post.all.each do |post|
+  post.courses.create!(
+    day: 2,
+    departure_point: "境港",
+    arrival_point: "松江駅"
+  )
+end
