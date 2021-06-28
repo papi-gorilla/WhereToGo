@@ -27,6 +27,7 @@ class PostsController < ApplicationController
     @courses = @post.courses.order(:day)
     @comment = Comment.new
     @comments = @post.comments.order(created_at: :desc)
+    # 投稿詳細ページへのアクセス数を取得
     impressionist(@post, nil, unique: [:session_hash.to_s])
   end
 

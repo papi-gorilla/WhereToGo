@@ -1,6 +1,6 @@
 <div class = "container px-5 px-sm-0">
   <div class = "row">
-    <h3 class = "mx-auto">投稿詳細ページ</h3>
+    <h3 class = "mx-auto">旅行予定詳細</h3>
   </div>
 
   <div class = "row">
@@ -58,6 +58,8 @@
             <tr class = "table-info day_courses<%= course.day %>" onclick = "onclickCourseDay(<%= course.day %>)">
               <td colspan = "2">
                 <%= course.day %>日目
+                <i class="fas fa-angle-down to-list<%= course.day %>"></i>
+                <i class="fas fa-angle-up d-none to-list<%= course.day %>"></i>
               </td>
               <td class = "text-right">
                 <% if @post.user == current_user %>

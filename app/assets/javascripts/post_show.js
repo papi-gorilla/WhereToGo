@@ -1,4 +1,5 @@
 function onclickCourseDay(day){
+  // 投稿した日程をクリックした際に表示を切り替える
   $(".way_list"+day).each(function(){
     $(this).toggleClass('d-none');
   });
@@ -15,6 +16,11 @@ function onclickCourseDay(day){
     $(this).toggleClass('d-none');
   });
 
+  $(".to-list"+day).each(function(){
+    $(this).toggleClass('d-none');
+  });
+
+  // 投稿した日程をクリックした際にGoogle mapで経路を表示
   var DS = new google.maps.DirectionsService();
   var DR = new google.maps.DirectionsRenderer();
 

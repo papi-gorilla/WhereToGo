@@ -18,18 +18,17 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+// 共通
 *{
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
 }
-
 body{
   display: flex;
   flex-flow: column;
   min-height: 100vh;
 }
-
 h3{
   color: #364e96;
   padding: 0.5em 0;
@@ -37,98 +36,69 @@ h3{
   border-bottom: solid 3px #364e96;
   margin-bottom: 50px;
 }
-
-.ranking-number{
-  color: #b8860b;
-  border-top: solid 3px #b8860b;
-  border-bottom: solid 3px #b8860b;
-  margin-bottom: 10px;
-}
-
 .main{
   flex: 1;
   background-color: #f0f8ff;
 }
-
-header, footer{
-  background-color: #4682b4;
-}
-
-.nav-link{
-  color: white;
-}
-
-.nav-link:hover{
-  color: #dcdcdc;
-}
-
 li{
   list-style: none;
 }
-
 .user_image{
   border-radius: 50%;
   border: 1px solid #dcdcdc;
 }
-
 #map{
   height: 500px;
   width: 100%;
 }
-
-.favorite-icon{
-  color: #ff69b4;
-}
-
-.favorite-icon:hover{
-  text-decoration: none;
-  color: #c71585;
-}
-
-.post-title-link, .user-show-link, .tutorial-link, .follow-btn, .following-link, .followed-link, .session-link{
+.post-title-link,
+.user-show-link,
+.tutorial-link,
+.follow-btn,
+.following-link,
+.followed-link,
+.session-link{
   color: #5f9ea0;
 }
-
-.post-title-link:hover, .user-show-link:hover, .tutorial-link:hover, .follow-btn:hover, .following-link:hover, .followed-link:hover, .session-link:hover{
+.post-title-link:hover,
+.user-show-link:hover,
+.tutorial-link:hover,
+.follow-btn:hover,
+.following-link:hover,
+.followed-link:hover,
+.session-link:hover{
   text-decoration: none;
   color: gray;
 }
-
-.about-image{
-  height: 500px;
-  background-image: image-url("about.jpg");
-  background-size: cover;
-  background-blend-mode: color-dodge;
-}
-
 .delete-btn{
   color: gray;
 }
-
 .edit-btn{
   color: gray;
 }
-
 .comment-btn{
   color: gray;
 }
 
+// ユーザーページ
 .user-introduction{
   border-top: 1px solid #dcdcdc;
   border-bottom: 1px solid #dcdcdc;
   padding: 50px 0;
 }
-
 .image-prev:hover {
   cursor: pointer;
   opacity: 0.7;
   transform: scale(1.01, 1.01);
 }
 
+//ヘッダー・フッター
+header, footer{
+  background-color: #4682b4;
+}
 .fa-bars{
   color: white;
 }
-
 .nav-menu .active{
   position: fixed;
   top: 0;
@@ -139,4 +109,35 @@ li{
   min-height: 30%;
   display: none;
   z-index: 9;
+}
+.nav-link{
+  color: white;
+}
+.nav-link:hover{
+  color: #dcdcdc;
+}
+
+// アバウトぺージ
+.about-image{
+  height: 500px;
+  background-image: image-url("about.jpg");
+  background-size: cover;
+  background-blend-mode: color-dodge;
+}
+
+// ランキングページ
+.ranking-number{
+  color: #b8860b;
+  border-top: solid 3px #b8860b;
+  border-bottom: solid 3px #b8860b;
+  margin-bottom: 10px;
+}
+
+// いいね機能
+.favorite-icon{
+  color: #ff69b4;
+}
+.favorite-icon:hover{
+  text-decoration: none;
+  color: #c71585;
 }
