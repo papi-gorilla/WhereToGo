@@ -1,6 +1,6 @@
 <div class = "container px-5 px-sm-0">
   <div class = "row">
-    <h3 class = "mx-auto">投稿詳細ページ</h3>
+    <h3 class = "mx-auto">旅行予定詳細</h3>
   </div>
 
   <div class = "row">
@@ -45,21 +45,21 @@
               <%= @post.title %>
               (<%= @courses.length %>日間)
               <% if @post.user == current_user %>
-                <%= link_to edit_post_path(@post), class: "edit-btn" do %>
-                  <i class="fas fa-edit"></i>
+                <%= link_to post_path(@post), method: :delete, class: "delete-btn" do %>
+                  <i class="fas fa-trash-alt"></i>
                 <% end %>
               <% end %>
             </td>
           </tr>
         </thead>
 
-
-
         <tbody>
           <% @courses.each do |course| %>
             <tr class = "table-info day_courses<%= course.day %>" onclick = "onclickCourseDay(<%= course.day %>)">
               <td colspan = "2">
                 <%= course.day %>日目
+                <i class="fas fa-angle-down to-list<%= course.day %>"></i>
+                <i class="fas fa-angle-up d-none to-list<%= course.day %>"></i>
               </td>
               <td class = "text-right">
                 <% if @post.user == current_user %>
@@ -71,57 +71,75 @@
             </tr>
             <tr>
               <td class = "departure<%= course.day %>"><%= course.departure_point %></td>
-              <td>→</td>
+              <td class = "to<%= course.day %>">→</td>
               <td class = "arrival<%= course.day %>"><%= course.arrival_point %></td>
+            </tr>
+
+            <tr class = "d-none departure<%= course.day %>">
+              <td>出発地</td>
+              <td colspan = "2" class = "d<%= course.day %>"><%= course.departure_point %></td>
             </tr>
 
             <% if course.way_point1.present? %>
             <tr class = "d-none way_list<%= course.day %>">
-              <td><%= course.way_point1 %></td>
+              <td>経由地1</td>
+              <td colspan = "2" class = "w<%= course.day %>"><%= course.way_point1 %></td>
             </tr>
             <% end %>
 
             <% if course.way_point2.present? %>
             <tr class = "d-none way_list<%= course.day %>">
-              <td><%= course.way_point2 %></td>
+              <td>経由地2</td>
+              <td colspan = "2" class = "w<%= course.day %>"><%= course.way_point2 %></td>
             </tr>
             <% end %>
 
             <% if course.way_point3.present? %>
             <tr class = "d-none way_list<%= course.day %>">
-              <td><%= course.way_point3 %></td>
+              <td>経由地3</td>
+              <td colspan = "2" class = "w<%= course.day %>"><%= course.way_point3 %></td>
             </tr>
             <% end %>
 
             <% if course.way_point4.present? %>
             <tr class = "d-none way_list<%= course.day %>">
-              <td><%= course.way_point4 %></td>
+              <td>経由地4</td>
+              <td colspan = "2" class = "w<%= course.day %>"><%= course.way_point4 %></td>
             </tr>
             <% end %>
 
             <% if course.way_point5.present? %>
             <tr class = "d-none way_list<%= course.day %>">
-              <td><%= course.way_point5 %></td>
+              <td>経由地5</td>
+              <td colspan = "2" class = "w<%= course.day %>"><%= course.way_point5 %></td>
             </tr>
             <% end %>
 
             <% if course.way_point6.present? %>
             <tr class = "d-none way_list<%= course.day %>">
-              <td><%= course.way_point6 %></td>
+              <td>経由地6</td>
+              <td colspan = "2" class = "w<%= course.day %>"><%= course.way_point6 %></td>
             </tr>
             <% end %>
 
             <% if course.way_point7.present? %>
             <tr class = "d-none way_list<%= course.day %>">
-              <td><%= course.way_point7 %></td>
+              <td>経由地7</td>
+              <td colspan = "2" class = "w<%= course.day %>"><%= course.way_point7 %></td>
             </tr>
             <% end %>
 
             <% if course.way_point8.present? %>
             <tr class = "d-none way_list<%= course.day %>">
-              <td><%= course.way_point8 %></td>
+              <td>経由地8</td>
+              <td colspan = "2" class = "w<%= course.day %>"><%= course.way_point8 %></td>
             </tr>
             <% end %>
+
+            <tr class = "d-none arrival<%= course.day%>">
+              <td>到着地</td>
+              <td colspan = "2" class = "a<%= course.day %>"><%= course.arrival_point%></td>
+            </tr>
           <% end %>
 
         </tbody>

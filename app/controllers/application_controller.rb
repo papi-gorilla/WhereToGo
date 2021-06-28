@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  # ログイン・新規登録後のリダイレクト先を指定
   def after_sign_in_path_for(resource)
     user_path(current_user)
   end
@@ -9,6 +10,7 @@ class ApplicationController < ActionController::Base
     user_path(current_user)
   end
   
+  # ログインユーザー以外のアクセス制限及びリダイレクト先を指定
   def autheniticate_user
     if current_user == nil
       redirect_to new_user_session_path

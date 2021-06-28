@@ -8,11 +8,11 @@ Rails.application.routes.draw do
       get :following, :followed
     end
   end
-  resources :posts, only:[:new, :create, :show, :edit, :update, :destroy] do
+  resources :posts, only:[:new, :create, :show, :destroy] do
     resources :comments, only:[:create, :destroy]
     resource :favorites, only:[:create, :destroy]
   end
-  resources :courses, only:[:new, :create, :edit, :destroy]
+  resources :courses, only:[:create, :destroy]
   get "searches" => "searches#index"
   get "rankings" => "rankings#index"
   post "follow/:id" => "relationships#follow", as: "follow"

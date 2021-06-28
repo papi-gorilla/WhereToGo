@@ -1,18 +1,21 @@
 <div class = "container px-5 px-sm-0">
   <div class = "row">
-    <h3 class = "mx-auto">検索結果一覧画面</h3>
+    <h3 class = "mx-auto">検索結果一覧</h3>
   </div>
 
   <div class = "row">
-    <div class = "col card-deck">
       <% if @range == "Post" %>
-        <% @posts.each do |post| %>
-          <div class = "post_<%= post.id %>">
-            <%= render "posts/post_index", post: post %>
-          </div>
-        <% end %>
+        <div class = "col d-flex flex-wrap justify-content-center">
+          <% @posts.each do |post| %>
+            <div class = "post_<%= post.id %>">
+              <%= render "posts/post_index", post: post %>
+            </div>
+          <% end %>
+        </div>
       <% else %>
-        <%= render "users/user_index", users: @users %>
+        <div class = "col-lg-6 mx-auto">
+          <%= render "users/user_index", users: @users %>
+        </div>
       <% end %>
     </div>
   </div>
