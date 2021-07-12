@@ -5,7 +5,11 @@
 
   <div class = "row">
     <div class = "col-lg-6 mx-auto">
-      <%= render "user_index", users: @users %>
+      <% @users.each do |user| %>
+        <div class = "user_<%= user.id %>">
+          <%= render "user_index", user: user %>
+        </div>
+      <% end %>
     </div>
   </div>
 

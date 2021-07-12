@@ -14,7 +14,11 @@
         </div>
       <% else %>
         <div class = "col-lg-6 mx-auto">
-          <%= render "users/user_index", users: @users %>
+          <% @users.each do |user| %>
+            <div class = "user_<%= user.id %>">
+              <%= render "users/user_index", user: user %>
+            </div>
+          <% end %>
         </div>
       <% end %>
     </div>

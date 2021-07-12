@@ -1,0 +1,2 @@
+$(".user_<%= @user.id %>").html("<%= j(render 'users/user_index', user: @user) %>")
+$(".user_<%= @user.id %>").html("<%= j(render 'users/user_follow', user: @user) %>")
