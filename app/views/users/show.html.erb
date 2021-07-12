@@ -23,25 +23,9 @@
             <% end %>
           <% end %>
 
-          <p>
-            <% if user_signed_in? && @user != current_user %>
-              <% if current_user.following?(@user) %>
-                <%= link_to "フォロー解除", unfollow_path(@user), method: :DELETE, class: "follow-btn" %>
-              <% else %>
-                <%= link_to "フォローする", follow_path(@user), method: :POST, class: "follow-btn" %>
-              <% end %>
-            <% end %>
-          </p>
-
-          <p>
-            <%= link_to following_user_path(@user), class: "following-link" do %>
-              フォロー数: <%= @user.following.count %>
-            <% end %>
-            |
-            <%= link_to followed_user_path(@user), class: "followed-link" do %>
-              フォロワー数: <%= @user.followed.count %>
-            <% end %>
-          </p>
+          <div class = "user_<%= @user.id %>">
+            <%= render "user_follow", user: @user %>
+          </div>
 
           <p class = "user-introduction"><%= @user.introduction %></p><br />
 

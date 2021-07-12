@@ -23,7 +23,11 @@ https://docs.google.com/spreadsheets/d/1elIfdxf1YLt3rUPJ29rMp8ZkXJ3muZy-04vlsNTm
 https://docs.google.com/spreadsheets/d/1yV-ZZUe4zgVV1ii_Un_rWINAm1XZ6GobMTLw7QGk0dM/edit#gid=0
 
 ## 開発環境
-- OS：Linux(CentOS)
+- OS：Amazon Linux release 2 (Karoo)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails 5.2.5
 - IDE：Cloud9
+- CSSフレームワーク：Bootstrap
+- JSライブラリ：jQuery
+- インフラ：AWS(EC2,RDS,AMI,EIP)
+- その他ツールなど：AWS Cloud9, Slack, GitHub
