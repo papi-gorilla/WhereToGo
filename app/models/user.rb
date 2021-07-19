@@ -46,13 +46,7 @@ class User < ApplicationRecord
 
   # 入力されたキーワードと完全一致及び部分一致しているユーザーを検索
   def self.looks(search, word)
-    if search == "perfect_match"
-      @user = User.where("user_name LIKE?","#{word}")
-    elsif search == "partial_match"
-      @user = User.where("user_name LIKE?","%#{word}%")
-    else
-      @user = User.all
-    end
+    @user = User.where("user_name LIKE?","%#{word}%")
   end
 
 end

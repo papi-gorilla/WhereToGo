@@ -49,10 +49,9 @@
           <% end %>
         </ul>
 
-        <%= form_with url: searches_path, local: true, method: :get, class: "form-group" do |f| %>
+        <%= form_with url: searches_path, local: true, method: :get, class: "form-group text-center" do |f| %>
           <%= f.text_field :word, class: "form-control form-control-sm" %>
           <%= f.select :range, options_for_select([["ユーザー", "User"], ["投稿", "Post"]]), class: "form-control" %>
-          <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["部分一致","partial_match"]]), class: "form-control" %><br />
           <%= f.submit "検索", class: "btn btn-outline-dark btn-light btn-sm form-control form-control" %>
         <% end %>
 
