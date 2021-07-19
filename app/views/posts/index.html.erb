@@ -1,4 +1,14 @@
 <div class = "container px-5 px-sm-0">
+
+  <div class = "row">
+    <div class = "col">
+      <div class = "box">
+        <div id = "map"></div>
+        <script src = "https://maps.googleapis.com/maps/api/js?key=<%= ENV['GoogleMapAPI'] %>&callback=initMap" async defer></script>
+      </div>
+    </div>
+  </div>
+
   <div class = "row">
     <h3 class = "mx-auto">新着投稿</h3>
   </div>
