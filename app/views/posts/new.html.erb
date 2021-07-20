@@ -23,6 +23,7 @@
               <%= i.number_field :day, placeholder: "日程", class: "form-control form-control-sm col-3" %>
               <label>日目</label>
             </div>
+            <%= i.select :way, [["車", "車"], ["電車", "電車"]], {prompt: "移動手段"}, class: "form-control form-control-sm" %>
             <%= i.text_field :departure_point, placeholder: "出発地", id: "departure", class: "form-control form-control-sm" %>
             <div id = "waypoint-list">
               <% for num in 1..8 do %>

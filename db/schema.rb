@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_22_011804) do
+ActiveRecord::Schema.define(version: 2021_07_20_015108) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2021_06_22_011804) do
     t.string "way_point8"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "way"
   end
 
   create_table "favorites", force: :cascade do |t|
